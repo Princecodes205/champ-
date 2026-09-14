@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-violet: #5500FF;
+  --color-brand-black: #0A0A0A;
+  --color-brand-white: #F9F9F9;
+  --font-inter: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-black text-brand-white font-inter antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-brand-white;
+  }
+}
+
+@layer utilities {
+  .grid-border {
+    @apply border border-brand-violet/20;
+  }
+}
