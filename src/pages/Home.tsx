@@ -30,8 +30,7 @@ const Home: React.FC = () => {
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-screen flex items-center justify-center px-4 py-12 md:px-6 md:py-20 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-brand-violet/20 blur-[100px] md:blur-[120px] rounded-full animate-pulse" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-brand-violet/10 blur-[100px] md:blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+          {/* Gradient blobs removed for brand alignment */}
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10 text-center">
@@ -39,13 +38,13 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-3 px-3 py-1.5 md:px-4 md:py-2 border border-brand-white/10 bg-brand-white/5 backdrop-blur-md rounded-full text-[10px] md:text-xs font-medium tracking-widest uppercase mb-8 md:mb-12"
+            className="inline-flex items-center gap-3 px-3 py-1.5 md:px-4 md:py-2 border border-brand-white/10 bg-brand-white/5 rounded-none text-[10px] md:text-xs font-medium tracking-widest uppercase mb-8 md:mb-12"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-violet opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-violet"></span>
             </span>
-            Digital Excellence Redefined
+            Available for new projects
           </motion.div>
 
           <motion.h1
@@ -54,9 +53,9 @@ const Home: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-7xl md:text-[10rem] font-black tracking-tighter leading-[0.85] mb-8 md:mb-12"
           >
-            <span className="block">Crafting</span>
-            <span className="block text-brand-violet italic">Digital</span>
-            <span className="block">Legacies.</span>
+            <span className="block">Creative</span>
+            <span className="block text-brand-violet italic">solutions</span>
+            <span className="block">for real problems.</span>
           </motion.h1>
 
           <motion.p
@@ -75,7 +74,7 @@ const Home: React.FC = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 px-4"
           >
             <Link to="/contact" className="w-full sm:w-auto group relative px-8 py-4 md:px-10 md:py-5 bg-brand-violet text-brand-black font-bold uppercase tracking-tighter overflow-hidden transition-all hover:scale-105 text-center">
-              <span className="relative z-10">Begin the Journey</span>
+              <span className="relative z-10">Start a Project</span>
               <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
             </Link>
             <Link to="/work" className="w-full sm:w-auto px-8 py-4 md:px-10 md:py-5 border border-brand-white/20 font-bold uppercase tracking-tighter hover:border-brand-violet hover:text-brand-violet transition-all text-center">
@@ -96,18 +95,15 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <motion.div
               whileHover={{ y: -10 }}
-              className="group relative p-8 md:p-12 border border-brand-white/10 bg-brand-white/[0.02] backdrop-blur-sm overflow-hidden rounded-2xl"
+              className="group relative p-8 md:p-12 border border-brand-white/10 bg-brand-white/[0.02] overflow-hidden rounded-none"
             >
-              <div className="absolute top-0 right-0 p-4 md:p-8 text-brand-violet/10 font-black text-6xl md:text-9xl select-none pointer-events-none group-hover:text-brand-violet/20 transition-colors">
-                S
-              </div>
               <div className="relative z-10">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-violet rounded-xl mb-6 md:mb-8 flex items-center justify-center text-brand-black font-bold">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-violet rounded-none mb-6 md:mb-8 flex items-center justify-center text-brand-black font-bold">
                   CD
                 </div>
                 <h3 className="text-2xl md:text-3xl font-black tracking-tighter mb-4">Champ Studio</h3>
                 <p className="text-brand-white/60 text-base md:text-lg mb-8 max-w-md">
-                  Visual identity, UX/UI, and comprehensive design systems that transform businesses into industry leaders.
+                  Visual identity, UX/UI, and comprehensive design systems.
                 </p>
                 <Link to="/about" className="inline-flex items-center gap-2 font-bold uppercase text-[10px] md:text-xs tracking-widest text-brand-violet group-hover:text-brand-white transition-colors">
                   Explore Studio <span className="group-hover:translate-x-1 transition-transform">→</span>
@@ -117,13 +113,10 @@ const Home: React.FC = () => {
 
             <motion.div
               whileHover={{ y: -10 }}
-              className="group relative p-8 md:p-12 border border-brand-white/10 bg-brand-white/[0.02] backdrop-blur-sm overflow-hidden rounded-2xl"
+              className="group relative p-8 md:p-12 border border-brand-white/10 bg-brand-white/[0.02] overflow-hidden rounded-none"
             >
-              <div className="absolute top-0 right-0 p-4 md:p-8 text-brand-violet/10 font-black text-6xl md:text-9xl select-none pointer-events-none group-hover:text-brand-violet/20 transition-colors">
-                B
-              </div>
               <div className="relative z-10">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-violet rounded-xl mb-6 md:mb-8 flex items-center justify-center text-brand-black font-bold">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-violet rounded-none mb-6 md:mb-8 flex items-center justify-center text-brand-black font-bold">
                   DE
                 </div>
                 <h3 className="text-2xl md:text-3xl font-black tracking-tighter mb-4">Champ Build</h3>
@@ -144,34 +137,34 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto w-full">
           <SectionHeading
             subtitle="Selected Work"
-            title="Proof of execution."
+            title="Case studies — coming soon"
             center
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <motion.div
               whileHover={{ scale: 0.98 }}
-              className="md:col-span-2 relative h-[350px] md:h-[500px] bg-brand-black rounded-3xl overflow-hidden group cursor-pointer"
+              className="md:col-span-2 relative h-[350px] md:h-[500px] bg-brand-black rounded-none overflow-hidden group cursor-pointer"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-brand-black to-transparent z-10" />
               <div className="absolute bottom-0 left-0 p-6 md:p-12 z-20">
-                <span className="text-brand-violet font-mono text-[10px] md:text-xs uppercase mb-2 block">Case Study — 01</span>
-                <h4 className="text-2xl md:text-4xl font-black text-white tracking-tighter mb-2 md:mb-4">Enterprise SaaS Rebrand</h4>
-                <p className="text-white/60 text-sm md:text-base mb-4 md:mb-6 max-w-md hidden sm:block">A complete overhaul of visual identity and user experience for a global logistics provider.</p>
-                <Link to="/work" className="text-white font-bold uppercase text-xs tracking-widest border-b-2 border-brand-violet pb-1">View Details</Link>
+                <span className="text-brand-violet font-mono text-[10px] md:text-xs uppercase mb-2 block">Project 01</span>
+                <h4 className="text-2xl md:text-4xl font-black text-white tracking-tighter mb-2 md:mb-4">Design & Dev Placeholder</h4>
+                <p className="text-white/60 text-sm md:text-base mb-4 md:mb-6 max-w-md hidden sm:block">A representative project showcasing the approach to digital excellence.</p>
+                <span className="text-white font-bold uppercase text-xs tracking-widest border-b-2 border-brand-violet pb-1">Coming soon</span>
               </div>
               <div className="absolute inset-0 bg-brand-violet/20 group-hover:bg-brand-violet/40 transition-colors" />
             </motion.div>
 
             <motion.div
               whileHover={{ scale: 0.98 }}
-              className="relative h-[350px] md:h-[500px] bg-brand-black rounded-3xl overflow-hidden group cursor-pointer"
+              className="relative h-[350px] md:h-[500px] bg-brand-black rounded-none overflow-hidden group cursor-pointer"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-brand-black to-transparent z-10" />
               <div className="absolute bottom-0 left-0 p-6 md:p-8 z-20">
-                <span className="text-brand-violet font-mono text-[10px] md:text-xs uppercase mb-2 block">Case Study — 02</span>
-                <h4 className="text-xl md:text-2xl font-black text-white tracking-tighter mb-2">Fintech App</h4>
-                <Link to="/work" className="text-white font-bold uppercase text-xs tracking-widest border-b-2 border-brand-violet pb-1">View Details</Link>
+                <span className="text-brand-violet font-mono text-[10px] md:text-xs uppercase mb-2 block">Project 02</span>
+                <h4 className="text-xl md:text-2xl font-black text-white tracking-tighter mb-2">Design & Dev Placeholder</h4>
+                <span className="text-white font-bold uppercase text-xs tracking-widest border-b-2 border-brand-violet pb-1">Coming soon</span>
               </div>
               <div className="absolute inset-0 bg-brand-violet/10 group-hover:bg-brand-violet/30 transition-colors" />
             </motion.div>
@@ -193,13 +186,13 @@ const Home: React.FC = () => {
               initial={{ opacity: 0, rotate: -5 }}
               whileInView={{ opacity: 1, rotate: 0 }}
               viewport={{ once: true }}
-              className="relative z-10 aspect-square max-w-sm mx-auto bg-brand-white/5 border border-brand-white/10 p-12 rounded-3xl backdrop-blur-sm"
+              className="relative z-10 aspect-square max-w-sm mx-auto bg-brand-white/5 border border-brand-white/10 p-12 rounded-none backdrop-blur-none"
             >
               <div className="flex flex-col h-full justify-center items-center text-center">
-                <div className="text-brand-violet font-black text-8xl mb-4 opacity-20">C</div>
                 <div className="text-xl md:text-2xl font-bold tracking-tight">The Vision</div>
               </div>
             </motion.div>
+            {/* TODO: Position as solo operation rather than team */}
             <div className="absolute -top-10 -left-10 w-32 h-32 bg-brand-violet/30 blur-3xl rounded-full" />
             <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-brand-violet/20 blur-3xl rounded-full" />
           </div>

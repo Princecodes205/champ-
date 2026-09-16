@@ -41,6 +41,7 @@ const About: React.FC = () => {
             <p className="text-lg md:text-2xl text-brand-white/50 max-w-3xl leading-relaxed font-light">
               Champ is not just a creative agency; we are a high-performance engine dedicated to building digital products that redefine industries. We operate at the intersection of aesthetic rigor and technical precision.
             </p>
+            {/* TODO: Position as solo operation rather than team */}
           </motion.div>
           {/* <div className="hidden lg:block relative h-[500px]">
             <motion.svg
@@ -67,7 +68,7 @@ const About: React.FC = () => {
             </motion.svg>
           </div> */}
         </div>
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-brand-violet/10 blur-[120px] rounded-full -z-0" />
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-brand-violet/10 rounded-none -z-0" />
       </section>
 
       {/* --- PHILOSOPHY SECTION --- */}
@@ -79,11 +80,11 @@ const About: React.FC = () => {
               We reject the notion that design is simply "how it looks." To us, design is how it works, how it scales, and how it feels. We believe the most successful products are those where the visual language and the technical architecture are conceived as a single, unified entity.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="p-6 border border-brand-black/10 rounded-2xl">
+              <div className="p-6 border border-brand-black/10 rounded-none">
                 <h4 className="font-bold uppercase text-xs tracking-widest mb-2 text-brand-violet">01. Precision</h4>
                 <p className="text-sm text-brand-black/60">Pixel-perfect execution in every frame and every line of code.</p>
               </div>
-              <div className="p-6 border border-brand-black/10 rounded-2xl">
+              <div className="p-6 border border-brand-black/10 rounded-none">
                 <h4 className="font-bold uppercase text-xs tracking-widest mb-2 text-brand-violet">02. Performance</h4>
                 <p className="text-sm text-brand-black/60">Speed is a feature. We build for the lowest latency and highest impact.</p>
               </div>
@@ -94,9 +95,8 @@ const About: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="aspect-square bg-brand-black rounded-3xl overflow-hidden relative p-12 flex items-center justify-center"
+              className="aspect-square bg-brand-black rounded-none overflow-hidden relative p-12 flex items-center justify-center"
             >
-              <div className="text-brand-violet font-black text-[15rem] opacity-20 select-none">C</div>
               <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-8">
                 <h3 className="text-brand-white text-3xl md:text-5xl font-black tracking-tighter leading-none mb-4">Rigorous <br /> Harmony</h3>
                 <p className="text-brand-white/60 text-sm md:text-base uppercase tracking-widest font-mono">The Champ Standard</p>
@@ -114,9 +114,9 @@ const About: React.FC = () => {
             <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
               <motion.div
                 whileHover={{ y: -10 }}
-                className="p-8 md:p-12 border border-brand-white/10 bg-brand-white/[0.02] backdrop-blur-sm rounded-3xl"
+                className="p-8 md:p-12 border border-brand-white/10 bg-brand-white/[0.02] rounded-none"
               >
-                <div className="w-12 h-12 bg-brand-violet rounded-xl mb-8 flex items-center justify-center text-brand-black font-bold">CS</div>
+                <div className="w-12 h-12 bg-brand-violet rounded-none mb-8 flex items-center justify-center text-brand-black font-bold">CS</div>
                 <h3 className="text-3xl font-black tracking-tighter mb-6">Champ Studio</h3>
                 <p className="text-brand-white/60 text-lg mb-8 leading-relaxed">
                   The creative heart of the agency. Specializing in brand strategy, visual identity, and high-fidelity UX/UI design. We build the emotional connection between a brand and its users.
@@ -131,9 +131,9 @@ const About: React.FC = () => {
               </motion.div>
               <motion.div
                 whileHover={{ y: -10 }}
-                className="p-8 md:p-12 border border-brand-white/10 bg-brand-white/[0.02] backdrop-blur-sm rounded-3xl"
+                className="p-8 md:p-12 border border-brand-white/10 bg-brand-white/[0.02] rounded-none"
               >
-                <div className="w-12 h-12 bg-brand-violet rounded-xl mb-8 flex items-center justify-center text-brand-black font-bold">CB</div>
+                <div className="w-12 h-12 bg-brand-violet rounded-none mb-8 flex items-center justify-center text-brand-black font-bold">CB</div>
                 <h3 className="text-3xl font-black tracking-tighter mb-6">Champ Build</h3>
                 <p className="text-brand-white/60 text-lg mb-8 leading-relaxed">
                   The technical engine. Specializing in custom web applications, scalable infrastructure, and high-performance engineering. We turn visions into robust, living software.

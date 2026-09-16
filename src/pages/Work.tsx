@@ -8,16 +8,19 @@ const ProjectCard = ({ project }: { project: any }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     whileHover={{ y: -10 }}
-    className="group relative aspect-[4/5] bg-brand-white/5 border border-brand-white/10 overflow-hidden rounded-3xl cursor-pointer"
+    className="group relative aspect-[4/5] bg-brand-white/5 border border-brand-white/10 overflow-hidden rounded-none cursor-pointer"
   >
     <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent z-10 opacity-60 group-hover:opacity-80 transition-opacity" />
     <div className="absolute inset-0 bg-brand-violet/10 group-hover:bg-brand-violet/20 transition-colors" />
+    <div className="absolute top-4 right-4 z-30">
+      <span className="bg-brand-violet text-brand-black text-[10px] font-bold uppercase px-2 py-1">Placeholder</span>
+    </div>
 
     <div className="absolute bottom-0 left-0 p-6 md:p-10 z-20 w-full">
       <span className="text-brand-violet font-mono text-[10px] md:text-xs uppercase mb-2 block">{project.category}</span>
       <h3 className="text-2xl md:text-4xl font-black text-brand-white tracking-tighter mb-4">{project.title}</h3>
       <div className="flex items-center gap-2 text-brand-white/50 font-medium text-xs md:text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 duration-300">
-        View Case Study <span className="text-brand-violet">→</span>
+        Coming soon <span className="text-brand-violet">→</span>
       </div>
     </div>
   </motion.div>
@@ -25,12 +28,12 @@ const ProjectCard = ({ project }: { project: any }) => (
 
 const Work: React.FC = () => {
   const projects = [
-    { title: "Enterprise SaaS Rebrand", category: "Visual Identity / UX", id: 1 },
-    { title: "Fintech Mobile App", category: "Product Design / Dev", id: 2 },
-    { title: "Luxury E-commerce", category: "Web Development", id: 3 },
-    { title: "AI Content Platform", category: "UX Strategy / UI", id: 4 },
-    { title: "Healthcare Dashboard", category: "Product Design", id: 5 },
-    { title: "Global Logistics Portal", category: "Custom Engineering", id: 6 },
+    { title: "Digital Product Design", category: "Visual Identity / UX", id: 1 },
+    { title: "Technical Implementation", category: "Product Design / Dev", id: 2 },
+    { title: "Custom Web Platform", category: "Web Development", id: 3 },
+    { title: "Strategic User Experience", category: "UX Strategy / UI", id: 4 },
+    { title: "Enterprise Interface", category: "Product Design", id: 5 },
+    { title: "Complex Engineering", category: "Custom Engineering", id: 6 },
   ];
 
   return (
@@ -173,7 +176,7 @@ const Work: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative p-8 border border-brand-white/10 bg-brand-white/[0.02] rounded-3xl hover:border-brand-violet transition-colors"
+                className="group relative p-8 border border-brand-white/10 bg-brand-white/[0.02] rounded-none hover:border-brand-violet transition-colors"
               >
                 <div className="text-brand-violet font-black text-5xl md:text-6xl mb-6 opacity-20 group-hover:opacity-100 transition-opacity">
                   {item.step}

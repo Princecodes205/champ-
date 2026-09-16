@@ -2,14 +2,35 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const Contact: React.FC = () => {
-  const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle');
+const FORM_ENDPOINT = "https://formspree.io/f/your-form-id"; // TODO: Sign up at formspree.io and paste your real form ID here
 
-  const handleSubmit = (e: React.FormEvent) => {
+const Contact: React.FC = () => {
+  const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormState('submitting');
-    // Simulate API call
-    setTimeout(() => setFormState('success'), 1500);
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setFormState('success');
+      } else {
+        setFormState('error');
+      }
+    } catch (error) {
+      setFormState('error');
+    }
   };
 
   return (
@@ -58,7 +79,7 @@ const Contact: React.FC = () => {
             </motion.svg>
           </div>
         </div>
-        <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-brand-violet/10 blur-[120px] rounded-full -z-0" />
+        <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-brand-violet/10 rounded-none -z-0" />
       </section>
 
       {/* --- CONTACT GRID --- */}
@@ -74,6 +95,7 @@ const Contact: React.FC = () => {
               <div className="space-y-12 mt-16 md:mt-24">
                 <div className="group">
                   <span className="text-brand-violet font-mono text-xs uppercase tracking-widest block mb-2">Email Us</span>
+                  {/* TODO: Confirm hello@champ.studio is monitored */}
                   <a href="mailto:hello@champ.studio" className="text-xl md:text-3xl font-bold hover:text-brand-violet transition-colors">hello@champ.studio</a>
                 </div>
                 <div className="group">
@@ -83,6 +105,7 @@ const Contact: React.FC = () => {
                 <div className="group">
                   <span className="text-brand-violet font-mono text-xs uppercase tracking-widest block mb-2">Socials</span>
                   <div className="flex gap-6 mt-4">
+                    {/* TODO: Update with actual social handles */}
                     <a href="#" className="text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest">Instagram</a>
                     <a href="#" className="text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest">Twitter / X</a>
                     <a href="#" className="text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest">LinkedIn</a>
@@ -91,7 +114,7 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-24 p-8 border border-brand-white/10 bg-brand-white/[0.02] backdrop-blur-sm rounded-3xl">
+            <div className="mt-24 p-8 border border-brand-white/10 bg-brand-white/[0.02] rounded-none">
               <p className="text-brand-white/60 text-sm leading-relaxed">
                 Typically responds within 24-48 business hours. For urgent project inquiries, please include "PRIORITY" in your subject line.
               </p>
@@ -104,7 +127,7 @@ const Contact: React.FC = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="p-8 md:p-12 bg-brand-white/[0.03] border border-brand-white/10 rounded-3xl backdrop-blur-md"
+              className="p-8 md:p-12 bg-brand-white/[0.03] border border-brand-white/10 rounded-none"
             >
               {formState === 'success' ? (
                 <div className="text-center py-20">
@@ -118,6 +141,18 @@ const Contact: React.FC = () => {
                     Send another message
                   </button>
                 </div>
+              ) : formState === 'error' ? (
+                <div className="text-center py-20">
+                  <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-black text-2xl font-bold">!</div>
+                  <h3 className="text-3xl font-black tracking-tighter mb-4">Submission Failed.</h3>
+                  <p className="text-brand-white/50 mb-8">Something went wrong. Please try again later or email us directly.</p>
+                  <button
+                    onClick={() => setFormState('idle')}
+                    className="text-brand-violet font-bold uppercase text-xs tracking-widest hover:underline"
+                  >
+                    Try again
+                  </button>
+                </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -125,6 +160,7 @@ const Contact: React.FC = () => {
                       <label className="text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">Full Name</label>
                       <input
                         required
+                        name="name"
                         type="text"
                         className="w-full bg-transparent border-b border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-brand-white placeholder:text-brand-white/20"
                         placeholder="John Doe"
@@ -134,6 +170,7 @@ const Contact: React.FC = () => {
                       <label className="text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">Email Address</label>
                       <input
                         required
+                        name="email"
                         type="email"
                         className="w-full bg-transparent border-b border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-brand-white placeholder:text-brand-white/20"
                         placeholder="john@example.com"
@@ -142,7 +179,10 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="space-y-2">
                     <label className="text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">Project Type</label>
-                    <select className="w-full bg-brand-black border-b border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-brand-white">
+                    <select
+                      name="project_type"
+                      className="w-full bg-brand-black border-b border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-brand-white"
+                    >
                       <option value="studio">Champ Studio (Design)</option>
                       <option value="build">Champ Build (Development)</option>
                       <option value="both">The Full Duo (Both)</option>
@@ -153,6 +193,7 @@ const Contact: React.FC = () => {
                     <label className="text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">Message</label>
                     <textarea
                       required
+                      name="message"
                       rows={4}
                       className="w-full bg-transparent border-b border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-brand-white placeholder:text-brand-white/20 resize-none"
                       placeholder="Tell us about your vision..."

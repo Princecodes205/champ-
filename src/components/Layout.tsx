@@ -29,12 +29,13 @@ const Layout: React.FC = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-4 md:px-8 py-4 ${
           scrolled
-            ? 'bg-brand-black/80 backdrop-blur-xl border-b border-brand-violet/20 py-3'
+            ? 'bg-brand-black/80 border-b border-brand-violet/20 py-3'
             : 'bg-transparent py-6'
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link to="/" className="relative z-[110] group flex items-center gap-3">
+            {/* TODO: Replace with real logo asset */}
             <div className="w-8 h-8 bg-brand-violet rounded-full flex items-center justify-center text-brand-black font-black text-xs transition-transform duration-500 group-hover:rotate-90">
               ★
             </div>
@@ -48,7 +49,7 @@ const Layout: React.FC = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-5 py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-full ${
+                className={`px-5 py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-none ${
                   location.pathname === link.path
                     ? 'text-brand-violet bg-brand-violet/10'
                     : 'text-brand-white/70 hover:text-brand-white hover:bg-brand-white/5'
@@ -60,7 +61,7 @@ const Layout: React.FC = () => {
             <div className="mx-4 w-px h-4 bg-brand-white/10" />
             <Link
               to="/contact"
-              className="ml-4 px-6 py-2 bg-brand-violet text-brand-black text-xs font-bold uppercase tracking-widest rounded-full hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(85,0,255,0.3)]"
+              className="ml-4 px-6 py-2 bg-brand-violet text-brand-black text-xs font-bold uppercase tracking-widest rounded-none hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(85,0,255,0.3)]"
             >
               Contact
             </Link>
@@ -85,7 +86,7 @@ const Layout: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-brand-black/95 backdrop-blur-2xl z-[100] flex flex-col justify-center items-center"
+              className="fixed inset-0 bg-brand-black/95 z-[100] flex flex-col justify-center items-center"
             >
               <div className="flex flex-col items-center gap-8 text-center">
                 {navLinks.map((link, i) => (
@@ -113,7 +114,7 @@ const Layout: React.FC = () => {
                   <Link
                     to="/contact"
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-brand-violet border-2 border-brand-violet px-8 py-3 rounded-full hover:bg-brand-violet hover:text-brand-black transition-all"
+                    className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-brand-violet border-2 border-brand-violet px-8 py-3 rounded-none hover:bg-brand-violet hover:text-brand-black transition-all"
                   >
                     Contact
                   </Link>
@@ -134,6 +135,7 @@ const Layout: React.FC = () => {
           <div>© {new Date().getFullYear()} Creative solutions for real problems.</div>
         </div>
         <div className="flex gap-8">
+          {/* TODO: Update with actual social handles */}
           <a href="#" className="hover:text-brand-violet transition-colors">Twitter</a>
           <a href="#" className="hover:text-brand-violet transition-colors">LinkedIn</a>
           <a href="#" className="hover:text-brand-violet transition-colors">GitHub</a>
