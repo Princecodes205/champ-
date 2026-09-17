@@ -17,6 +17,7 @@ const Layout: React.FC = () => {
 
   useEffect(() => {
     setIsMenuOpen(false);
+    window.scrollTo(0, 0);
   }, [location]);
 
   const navLinks = [
@@ -35,13 +36,13 @@ const Layout: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link to="/" className="relative z-[110] group flex items-center gap-3">
-            {/* TODO: Replace with real logo asset */}
-            <div className="w-8 h-8 bg-brand-violet rounded-full flex items-center justify-center text-brand-black font-black text-xs transition-transform duration-500 group-hover:rotate-90">
-              ★
-            </div>
-            <span className="text-xl md:text-2xl font-black tracking-tighter uppercase">
-              Champ
-            </span>
+            <motion.img
+              src="/logo-white.png"
+              alt="Champ Logo"
+              className="w-20 h-20 object-contain"
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            />
           </Link>
 
           <div className="hidden md:flex items-center gap-1">
