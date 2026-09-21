@@ -8,7 +8,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       transition={{ delay: (index % 3) * 0.1, duration: 0.8 }}
       whileHover={{ y: -10 }}
       className={`group relative aspect-[16/10] md:aspect-[4/3] bg-brand-white/5 border border-brand-white/10 overflow-hidden rounded-none cursor-pointer ${isFullWidth ? "md:col-span-2" : "col-span-1"}`}
@@ -98,7 +98,7 @@ const Work: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="space-y-12 text-center"
           >
             <span className="text-brand-violet font-mono text-xs md:text-sm uppercase tracking-[0.3em] block mb-4">
@@ -165,7 +165,7 @@ const Work: React.FC = () => {
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ delay: i * 0.1 }}
                 className="group relative p-8 border border-brand-white/10 bg-brand-white/[0.02] rounded-none hover:border-brand-violet transition-colors"
               >
@@ -197,7 +197,7 @@ const Work: React.FC = () => {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter mb-8 md:mb-12 leading-none"
           >
             Have a vision? <br />
@@ -206,7 +206,7 @@ const Work: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: 0.2 }}
           >
             <Link

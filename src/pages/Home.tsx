@@ -15,7 +15,7 @@ const SectionHeading = ({
     <motion.span
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       className="text-brand-violet font-mono text-xs md:text-sm uppercase tracking-[0.3em] block mb-4"
     >
       {subtitle}
@@ -23,7 +23,7 @@ const SectionHeading = ({
     <motion.h2
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter leading-tight"
     >
       {title}
@@ -71,10 +71,9 @@ const Home: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-2xl text-brand-white/50 max-w-3xl mx-auto mb-12 md:mb-16 leading-relaxed font-light px-4"
           >
-            Champ is a high-performance creative agency specializing in the
-            intersection of{" "}
-            <span className="text-brand-white">strategic design</span> and{" "}
-            <span className="text-brand-white">technical engineering</span>.
+            Web design and development studio building fast, sharp sites for{" "}
+            <span className="text-brand-white">small</span> and{" "}
+            <span className="text-brand-white">medium sized</span> enterprises.
           </motion.p>
 
           <motion.div
@@ -236,7 +235,7 @@ const Home: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, rotate: -5 }}
               whileInView={{ opacity: 1, rotate: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="relative z-10 aspect-square max-w-sm mx-auto bg-brand-white/5 border border-brand-white/10 p-12 rounded-none backdrop-blur-none"
             >
               <div className="flex flex-col h-full justify-center items-center text-center">
@@ -289,7 +288,7 @@ const Home: React.FC = () => {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter mb-8 md:mb-12 leading-none"
           >
             Let's Build <br />
@@ -298,7 +297,7 @@ const Home: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: 0.2 }}
           >
             <Link

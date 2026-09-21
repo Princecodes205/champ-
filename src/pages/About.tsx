@@ -7,7 +7,7 @@ const SectionHeading = ({ title, subtitle, center = false, className = '' }: { t
     <motion.span
       initial={false}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       className="text-brand-violet font-mono text-xs md:text-sm uppercase tracking-[0.3em] block mb-4"
     >
       {subtitle}
@@ -15,7 +15,7 @@ const SectionHeading = ({ title, subtitle, center = false, className = '' }: { t
     <motion.h2
       initial={false}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter leading-tight"
     >
       {title}
@@ -50,16 +50,28 @@ const About: React.FC = () => {
       {/* --- PHILOSOPHY SECTION --- */}
       <section className="relative py-24 md:py-32 px-4 md:px-6 bg-brand-white text-brand-black z-10">
         <div className="max-w-4xl mx-auto relative z-20">
-          <div className="mb-12 md:mb-16 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8 }}
+            className="mb-12 md:mb-16 text-center"
+          >
             <span className="text-brand-violet font-mono text-xs md:text-sm uppercase tracking-[0.3em] block mb-4">
               Our Philosophy
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter leading-tight text-brand-black">
               Design is not a layer. It is the foundation.
             </h2>
-          </div>
+          </motion.div>
 
-          <div className="space-y-12 mt-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-12 mt-12"
+          >
             <p className="text-xl md:text-2xl leading-relaxed font-light text-center text-brand-black">
               We reject the notion that design is simply "how it looks." To us, design is how it works, how it scales, and how it feels.
               We believe the most successful products are those where the visual language and the technical architecture are conceived as a single, unified entity.
@@ -79,7 +91,7 @@ const About: React.FC = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -94,7 +106,7 @@ const About: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ duration: 0.8 }}
                 className="text-center max-w-3xl"
               >
@@ -119,7 +131,7 @@ const About: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ duration: 0.8 }}
                 className="text-center max-w-3xl"
               >
@@ -155,7 +167,7 @@ const About: React.FC = () => {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-4xl md:text-7xl font-black tracking-tighter mb-8 md:mb-12"
           >
             Ready to evolve <br /> your <span className="italic">digital presence?</span>

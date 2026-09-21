@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-8">
@@ -93,7 +93,7 @@ const Contact: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="mt-24 p-8 border border-brand-white/10 bg-brand-white/[0.02] rounded-none"
             >
               <p className="text-brand-white/60 text-sm leading-relaxed">
@@ -107,7 +107,7 @@ const Contact: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.8 }}
               className="p-8 md:p-12 bg-brand-white/[0.03] border border-brand-white/10 rounded-none"
             >
@@ -200,7 +200,7 @@ const Contact: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             <span className="text-brand-violet font-mono text-xs uppercase tracking-[0.3em] block mb-6">Let's Build</span>
             <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-12 leading-none">
