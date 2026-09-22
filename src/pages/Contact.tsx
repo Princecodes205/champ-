@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const FORM_ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT || ""; // Fallback to empty string if env is not set
 
@@ -21,20 +22,31 @@ const Contact: React.FC = () => {
     const formData = new FormData(e.currentTarget);
 
     try {
-      await fetch(FORM_ENDPOINT, {
+      const response = await fetch(FORM_ENDPOINT, {
         method: 'POST',
         body: formData,
-        mode: 'no-cors', // Prevents CORS errors when Formspree redirects
+        headers: {
+          'Accept': 'application/json',
+        },
       });
+
+      if (!response.ok) {
+        throw new Error(`Server responded with ${response.status}`);
+      }
+
       setFormState('success');
     } catch (error) {
-      console.error('Network Error:', error);
+      console.error('Submission Error:', error);
       setFormState('error');
     }
   };
 
   return (
     <div className="flex flex-col bg-brand-black text-brand-white min-h-screen overflow-x-hidden selection:bg-brand-violet selection:text-brand-black">
+      <Helmet>
+        <title>Contact — Let's Build Something</title>
+        <meta name="description" content="Get in touch with Champ to engineer your digital vision into reality. Now accepting new projects for strategic design and technical build." />
+      </Helmet>
       {/* --- HERO SECTION --- */}
       <section className="relative pt-32 pb-16 px-4 md:px-6 md:pt-48 md:pb-24 overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
@@ -81,10 +93,9 @@ const Contact: React.FC = () => {
                 <div className="group">
                   <span className="text-brand-violet font-mono text-xs uppercase tracking-widest block mb-2">Socials</span>
                   <div className="flex gap-6 mt-4">
-                    {/* TODO: Update with actual social handles */}
-                    <a href="#" className="text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest">Instagram</a>
-                    <a href="#" className="text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest">Twitter / X</a>
-                    <a href="#" className="text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest">LinkedIn</a>
+                    <a href="https://instagram.com/champ" className="text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest">Instagram</a>
+                    <a href="https://twitter.com/champ" className="text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest">Twitter / X</a>
+                    <a href="https://linkedin.com/company/champ" className="text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest">LinkedIn</a>
                   </div>
                 </div>
               </div>

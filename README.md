@@ -1,35 +1,48 @@
-# React + TypeScript + Vite
+# Champ Studios
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Champ is a high-performance creative studio specializing in the intersection of strategic design and technical engineering. We build fast, sharp, and scalable digital experiences for small to medium-sized enterprises.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Framework**: React 19
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion
+- **Routing**: React Router DOM
+- **SEO**: React Helmet Async
 
-## React Compiler
+## 🛠️ Local Setup
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-repo/champ-web.git
+   cd champ-web
+   ```
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## Expanding the Oxlint configuration
+3. **Environment Configuration**
+   Create a `.env` file in the root directory:
+   ```env
+   VITE_FORM_ENDPOINT=your_form_endpoint_url
+   ```
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+5. **Build for production**
+   ```bash
+   npm run build
+   ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## 📐 Architecture
+
+Champ follows a component-based architecture with a focus on performance and accessibility. We leverage Tailwind v4's improved engine for ultra-lean CSS and Framer Motion for a premium, tactile user experience.
+
+---
+© 2026 Champ Studios. Creative solutions for real problems.

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 const SectionHeading = ({
   title,
@@ -34,6 +35,10 @@ const SectionHeading = ({
 const Home: React.FC = () => {
   return (
     <div className="flex flex-col bg-brand-black text-brand-white selection:bg-brand-violet selection:text-brand-black overflow-x-hidden">
+      <Helmet>
+        <title>champ — Creative solutions for real problems</title>
+        <meta name="description" content="High-performance creative studio specializing in the intersection of strategic design and technical engineering." />
+      </Helmet>
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-screen flex items-center justify-center px-4 py-12 md:px-6 md:py-20 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">

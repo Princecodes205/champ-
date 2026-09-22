@@ -21,7 +21,6 @@ const Layout: React.FC = () => {
   }, [location]);
 
   const navLinks = [
-    { name: 'Work', path: '/work' },
     { name: 'About', path: '/about' },
   ];
 
@@ -71,6 +70,8 @@ const Layout: React.FC = () => {
           <button
             className="md:hidden relative z-[110] p-2 text-brand-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMenuOpen}
           >
             <div className="w-6 h-5 relative flex flex-col justify-between">
               <span className={`w-full h-0.5 bg-brand-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
@@ -136,10 +137,9 @@ const Layout: React.FC = () => {
           <div>© {new Date().getFullYear()} Creative solutions for real problems.</div>
         </div>
         <div className="flex gap-8">
-          {/* TODO: Update with actual social handles */}
-          <a href="#" className="hover:text-brand-violet transition-colors">Twitter</a>
-          <a href="#" className="hover:text-brand-violet transition-colors">LinkedIn</a>
-          <a href="#" className="hover:text-brand-violet transition-colors">GitHub</a>
+          <a href="https://twitter.com/champ" className="hover:text-brand-violet transition-colors">Twitter</a>
+          <a href="https://linkedin.com/company/champ" className="hover:text-brand-violet transition-colors">LinkedIn</a>
+          <a href="https://github.com/champ" className="hover:text-brand-violet transition-colors">GitHub</a>
         </div>
       </footer>
     </div>
