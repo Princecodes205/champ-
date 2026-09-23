@@ -20,7 +20,10 @@ const Layout: React.FC = () => {
     window.scrollTo(0, 0);
   }, [location]);
 
-  const navLinks = [{ name: "About", path: "/about" }];
+  const navLinks = [
+    { name: "About", path: "/about" },
+    { name: "Works", path: "/work" },
+  ];
 
   return (
     <div className="min-h-screen bg-brand-black text-brand-white font-inter flex flex-col">
