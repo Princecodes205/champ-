@@ -28,8 +28,8 @@ const About: React.FC = () => {
   return (
     <div className="flex flex-col bg-brand-black text-brand-white min-h-screen overflow-x-hidden selection:bg-brand-violet selection:text-brand-black">
       <Helmet>
-        <title>About — Where Design Meets Engineering</title>
-        <meta name="description" content="Learn about Champ's philosophy of integrating aesthetic rigor with technical precision to build high-performance digital products." />
+        <title>About — Where Design Meets Execution</title>
+        <meta name="description" content="champ is a design-led studio building brands and products for growth-focused businesses. See how strategy, design, and development work as one." />
       </Helmet>
       {/* --- HERO SECTION --- */}
       <section className="relative pt-32 pb-16 px-4 md:px-6 md:pt-48 md:pb-24 overflow-hidden min-h-screen max-sm:mt-28 lg:mt-0">
@@ -41,11 +41,10 @@ const About: React.FC = () => {
           >
             <span className="text-brand-violet font-mono text-xs md:text-sm uppercase tracking-[0.3em] block mb-4">The Agency</span>
             <h1 className="text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter leading-[0.9] mb-8 md:mb-12">
-              Where <span className="text-brand-violet italic">Design</span> <br /> Meets Engineering.
+              Where <span className="text-brand-violet italic">Design</span> <br /> Meets Execution.
             </h1>
             <p className="text-lg md:text-2xl text-brand-white/50 max-w-3xl leading-relaxed font-light">
-              Champ is a high-performance creative engine dedicated to building digital products that redefine industries.
-              Operated as a <span className="text-brand-violet">specialized</span> solo studio, Champ blends aesthetic rigor with technical precision to deliver results that larger agencies often dilute.
+              champ is a design-led studio for businesses serious about growth. Operated as a focused solo practice, champ pairs sharp creative thinking with clean, reliable development — the kind of result that gets diluted the moment more people get involved.
               {/* TODO: Position as solo operation rather than team - integrated above */}
             </p>
           </motion.div>
@@ -103,7 +102,7 @@ const About: React.FC = () => {
       {/* --- DUALITY SECTION --- */}
       <section className="relative py-24 md:py-32 px-4 md:px-6 bg-brand-black">
         <div className="max-w-7xl mx-auto">
-          <SectionHeading subtitle="The Duality" title={<>One Studio, <br /> two <span className="text-brand-violet">Specialized</span> <br/> Powerhouses.</>} center />
+          <SectionHeading subtitle="The Duality" title={<>One Studio, <br /> Two <span className="text-brand-violet">Focused</span> <br/> Disciplines.</>} center />
           
           <div className="space-y-24 md:space-y-40 mt-24">
             {/* Block 1: Studio */}
@@ -143,11 +142,11 @@ const About: React.FC = () => {
                 <div className="w-12 h-12 bg-brand-violet rounded-none mb-6 flex items-center justify-center text-brand-black font-bold mx-auto">CB</div>
                 <h3 className="text-3xl md:text-5xl font-black tracking-tighter mb-6">Champ Build</h3>
                 <p className="text-brand-white/60 text-lg leading-relaxed mb-8 max-sm:text-left">
-                  The technical engine. Specializing in custom web applications, scalable infrastructure, and high-performance engineering.
-                  We turn visions into robust, living software that scales effortlessly as your business grows.
+                  The technical side. Custom web applications, clean infrastructure, and fast, reliable builds.
+                  We turn ideas into software that actually holds up as the business grows.
                 </p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                  {['Custom Web Apps', 'Scalable Architecture', 'Performance Opt.', 'API Engineering'].map((item) => (
+                  {['Custom Web Apps', 'Scalable Architecture', 'Performance Opt.', 'API Integration'].map((item) => (
                     <li key={item} className="flex items-center gap-3 text-sm font-medium text-brand-white/80">
                       <span className="w-1.5 h-1.5 bg-brand-violet rounded-full" /> {item}
                     </li>
