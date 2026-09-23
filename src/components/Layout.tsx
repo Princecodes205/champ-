@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Layout: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,8 +11,8 @@ const Layout: React.FC = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -20,21 +20,22 @@ const Layout: React.FC = () => {
     window.scrollTo(0, 0);
   }, [location]);
 
-  const navLinks = [
-    { name: 'About', path: '/about' },
-  ];
+  const navLinks = [{ name: "About", path: "/about" }];
 
   return (
     <div className="min-h-screen bg-brand-black text-brand-white font-inter flex flex-col">
       <nav
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-4 md:px-8 py-4 ${
           scrolled
-            ? 'bg-brand-black/80 border-b border-brand-violet/20 py-3'
-            : 'bg-transparent py-6'
+            ? "bg-brand-black/80 border-b border-brand-violet/20 py-3"
+            : "bg-transparent py-6"
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <Link to="/" className="relative z-[110] group flex items-center gap-3">
+          <Link
+            to="/"
+            className="relative z-[110] group flex items-center gap-3"
+          >
             <motion.img
               src="/logo-white.png"
               alt="Champ Logo"
@@ -51,8 +52,8 @@ const Layout: React.FC = () => {
                 to={link.path}
                 className={`px-5 py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-none ${
                   location.pathname === link.path
-                    ? 'text-brand-violet bg-brand-violet/10'
-                    : 'text-brand-white/70 hover:text-brand-white hover:bg-brand-white/5'
+                    ? "text-brand-violet bg-brand-violet/10"
+                    : "text-brand-white/70 hover:text-brand-white hover:bg-brand-white/5"
                 }`}
               >
                 {link.name}
@@ -70,13 +71,21 @@ const Layout: React.FC = () => {
           <button
             className="md:hidden relative z-[110] p-2 text-brand-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
             aria-expanded={isMenuOpen}
           >
             <div className="w-6 h-5 relative flex flex-col justify-between">
-              <span className={`w-full h-0.5 bg-brand-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-              <span className={`w-full h-0.5 bg-brand-white transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`} />
-              <span className={`w-full h-0.5 bg-brand-white transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+              <span
+                className={`w-full h-0.5 bg-brand-white transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`}
+              />
+              <span
+                className={`w-full h-0.5 bg-brand-white transition-all duration-300 ${isMenuOpen ? "opacity-0" : ""}`}
+              />
+              <span
+                className={`w-full h-0.5 bg-brand-white transition-all duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+              />
             </div>
           </button>
         </div>
@@ -131,15 +140,26 @@ const Layout: React.FC = () => {
         <Outlet />
       </main>
 
-      <footer className="border-t border-brand-violet/30 px-4 md:px-8 py-12 text-xs text-brand-white/40 uppercase tracking-widest flex flex-col md:flex-row justify-between items-center gap-8 bg-brand-black">
+      <footer className="border-t border-brand-violet/30 px-4 md:px-8 py-12 text-xs text-brand-white/40 uppercase  tracking-widest flex flex-col md:flex-row justify-between items-center gap-8 bg-brand-black">
         <div className="text-center md:text-left">
           <div className="text-brand-white font-bold mb-2">Champ Agency</div>
-          <div>© {new Date().getFullYear()} Creative solutions for real problems.</div>
+          <div>
+            © {new Date().getFullYear()} Creative solutions for real problems.
+            <p className="normal-case pt-2">
+              Socials still under review, will be updated soon
+            </p>
+          </div>
         </div>
         <div className="flex gap-8">
-          <a href="https://twitter.com/champ" className="hover:text-brand-violet transition-colors">Twitter</a>
-          <a href="https://linkedin.com/company/champ" className="hover:text-brand-violet transition-colors">LinkedIn</a>
-          <a href="https://github.com/champ" className="hover:text-brand-violet transition-colors">GitHub</a>
+          <a href="#" className="hover:text-brand-violet transition-colors">
+            Twitter
+          </a>
+          <a href="#" className="hover:text-brand-violet transition-colors">
+            LinkedIn
+          </a>
+          <a href="#" className="hover:text-brand-violet transition-colors">
+            GitHub
+          </a>
         </div>
       </footer>
     </div>

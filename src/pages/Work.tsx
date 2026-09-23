@@ -59,7 +59,10 @@ const Work: React.FC = () => {
     <div className="flex flex-col bg-brand-black text-brand-white min-h-screen selection:bg-brand-violet selection:text-brand-black">
       <Helmet>
         <title>Work — Selected Projects & Methodology</title>
-        <meta name="description" content="Explore the intersection of high-fidelity design and custom engineering through Champ's selected case studies and operational workflow." />
+        <meta
+          name="description"
+          content="Explore the intersection of high-fidelity design and custom engineering through Champ's selected case studies and operational workflow."
+        />
       </Helmet>
       {/* --- HEADER --- */}
       <section className="relative pt-32 pb-16 px-4 md:px-6 md:pt-48 md:pb-24 overflow-hidden">
