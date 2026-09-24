@@ -1,10 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const NotFound: React.FC = () => {
   return (
     <div className="min-h-screen bg-brand-black text-brand-white flex flex-col items-center justify-center px-4 text-center overflow-hidden selection:bg-brand-violet selection:text-brand-black">
+      <Helmet>
+        <title>Page Not Found — champ</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}

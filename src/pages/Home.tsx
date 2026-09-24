@@ -37,7 +37,17 @@ const Home: React.FC = () => {
     <div className="flex flex-col bg-brand-black text-brand-white selection:bg-brand-violet selection:text-brand-black overflow-x-hidden">
       <Helmet>
         <title>champ — Creative solutions for real problems</title>
-        <meta name="description" content="High-performance creative studio specializing in the intersection of strategic design and technical engineering." />
+        <meta name="description" content="champ is a design-led studio building digital products at the intersection of strategy, design, and clean code." />
+        <link rel="canonical" href="https://champ-jet.vercel.app/" />
+        <meta property="og:title" content="champ — Creative solutions for real problems" />
+        <meta property="og:description" content="champ is a design-led studio building digital products at the intersection of strategy, design, and clean code." />
+        <meta property="og:url" content="https://champ-jet.vercel.app/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://champ-jet.vercel.app/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="champ — Creative solutions for real problems" />
+        <meta name="twitter:description" content="champ is a design-led studio building digital products at the intersection of strategy, design, and clean code." />
+        <meta name="twitter:image" content="https://champ-jet.vercel.app/og-image.png" />
       </Helmet>
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-screen flex items-center justify-center px-4 py-12 md:px-6 md:py-20 overflow-hidden">
@@ -151,8 +161,7 @@ const Home: React.FC = () => {
                   Champ Build
                 </h3>
                 <p className="text-brand-white/60 text-base md:text-lg mb-8 max-w-md">
-                  Custom web applications and scalable digital infrastructure
-                  engineered for performance and reliability.
+                  Custom web applications and scalable digital infrastructure, built for performance and reliability.
                 </p>
                 <Link
                   to="/about"

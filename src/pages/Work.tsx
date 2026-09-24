@@ -52,17 +52,24 @@ const Work: React.FC = () => {
     { title: "Custom Web Platform", category: "Web Development", id: 3 },
     { title: "Strategic User Experience", category: "UX Strategy / UI", id: 4 },
     { title: "Enterprise Interface", category: "Product Design", id: 5 },
-    { title: "Complex Engineering", category: "Custom Engineering", id: 6 },
+    { title: "Custom Build", category: "Product Development", id: 6 },
   ];
 
   return (
     <div className="flex flex-col bg-brand-black text-brand-white min-h-screen selection:bg-brand-violet selection:text-brand-black">
       <Helmet>
         <title>Work — Selected Projects & Methodology</title>
-        <meta
-          name="description"
-          content="Explore the intersection of high-fidelity design and custom engineering through Champ's selected case studies and operational workflow."
-        />
+        <meta name="description" content="Explore the intersection of high-fidelity design and clean development through champ's selected case studies and process." />
+        <link rel="canonical" href="https://champ-jet.vercel.app/work" />
+        <meta property="og:title" content="Work — Selected Projects & Methodology" />
+        <meta property="og:description" content="Explore the intersection of high-fidelity design and clean development through champ's selected case studies and process." />
+        <meta property="og:url" content="https://champ-jet.vercel.app/work" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://champ-jet.vercel.app/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Work — Selected Projects & Methodology" />
+        <meta name="twitter:description" content="Explore the intersection of high-fidelity design and clean development through champ's selected case studies and process." />
+        <meta name="twitter:image" content="https://champ-jet.vercel.app/og-image.png" />
       </Helmet>
       {/* --- HEADER --- */}
       <section className="relative pt-32 pb-16 px-4 md:px-6 md:pt-48 md:pb-24 overflow-hidden">
@@ -115,7 +122,7 @@ const Work: React.FC = () => {
             <h2 className="text-4xl md:text-6xl text-brand-black tracking-tighter leading-none mb-8 font-black">
               <span className="relative inline-block px-2">
                 <span className="absolute inset-0 -skew-x-12 bg-brand-violet"></span>
-                <span className="relative">Engineering</span>
+                <span className="relative">Execution</span>
               </span>
               <br />
               <span className="italic text-brand-violet">with Intent.</span>
@@ -127,9 +134,8 @@ const Work: React.FC = () => {
               design and code evolve in tandem.
             </p>
             <p className="text-lg md:text-xl text-brand-black/70 leading-relaxed font-light">
-              By merging the creativity of a studio with the precision of an
-              engineering firm, we ensure that the final product isn't just
-              visually stunning—it's architecturally sound and built to scale.
+              By merging the creativity of a studio with the discipline of a product team, we ensure that the final product isn't just
+              visually stunning—it's structurally sound and built to scale.
             </p>
           </motion.div>
         </div>
@@ -161,7 +167,7 @@ const Work: React.FC = () => {
               {
                 step: "03",
                 title: "Execution",
-                desc: "High-fidelity design and agile engineering working in a synchronized loop.",
+                desc: "High-fidelity design and agile development working in a synchronized loop.",
               },
               {
                 step: "04",

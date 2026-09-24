@@ -47,10 +47,17 @@ const Contact: React.FC = () => {
     <div className="flex flex-col bg-brand-black text-brand-white min-h-screen overflow-x-hidden selection:bg-brand-violet selection:text-brand-black">
       <Helmet>
         <title>Contact — Let's Build Something</title>
-        <meta
-          name="description"
-          content="Get in touch with Champ to engineer your digital vision into reality. Now accepting new projects for strategic design and technical build."
-        />
+        <meta name="description" content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build." />
+        <link rel="canonical" href="https://champ-jet.vercel.app/contact" />
+        <meta property="og:title" content="Contact — Let's Build Something" />
+        <meta property="og:description" content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build." />
+        <meta property="og:url" content="https://champ-jet.vercel.app/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://champ-jet.vercel.app/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact — Let's Build Something" />
+        <meta name="twitter:description" content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build." />
+        <meta name="twitter:image" content="https://champ-jet.vercel.app/og-image.png" />
       </Helmet>
       {/* --- HERO SECTION --- */}
       <section className="relative pt-32 pb-16 px-4 md:px-6 md:pt-48 md:pb-24 overflow-hidden">
@@ -69,7 +76,7 @@ const Contact: React.FC = () => {
             </h1>
             <p className="text-lg md:text-2xl text-brand-white/50 max-w-3xl leading-relaxed font-light">
               Whether you have a fully realized brief or just a spark of an
-              idea, we're here to engineer it into reality.
+              idea, we're here to turn it into reality.
             </p>
           </motion.div>
         </div>
@@ -88,7 +95,7 @@ const Contact: React.FC = () => {
             >
               <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-8">
                 Get in touch with <br /> the{" "}
-                <span className="text-brand-violet italic">engineers.</span>
+                <span className="text-brand-violet italic">team.</span>
               </h2>
               <div className="space-y-12 mt-16 md:mt-24">
                 <div className="group">

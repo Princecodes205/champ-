@@ -30,6 +30,16 @@ const About: React.FC = () => {
       <Helmet>
         <title>About — Where Design Meets Execution</title>
         <meta name="description" content="champ is a design-led studio building brands and products for growth-focused businesses. See how strategy, design, and development work as one." />
+        <link rel="canonical" href="https://champ-jet.vercel.app/about" />
+        <meta property="og:title" content="About — Where Design Meets Execution" />
+        <meta property="og:description" content="champ is a design-led studio building brands and products for growth-focused businesses. See how strategy, design, and development work as one." />
+        <meta property="og:url" content="https://champ-jet.vercel.app/about" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://champ-jet.vercel.app/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About — Where Design Meets Execution" />
+        <meta name="twitter:description" content="champ is a design-led studio building brands and products for growth-focused businesses. See how strategy, design, and development work as one." />
+        <meta name="twitter:image" content="https://champ-jet.vercel.app/og-image.png" />
       </Helmet>
       {/* --- HERO SECTION --- */}
       <section className="relative pt-32 pb-16 px-4 md:px-6 md:pt-48 md:pb-24 overflow-hidden min-h-screen max-sm:mt-28 lg:mt-0">
