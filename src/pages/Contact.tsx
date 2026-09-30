@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
-const FORM_ENDPOINT = "https://formspree.io/f/xvkgaowb"; // Replace this with the link from your .env file
+const FORM_ENDPOINT = "https://formspree.io/f/xvkgaowb";
 
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState<
@@ -44,37 +44,55 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col bg-brand-black text-brand-white min-h-screen overflow-x-hidden selection:bg-brand-violet selection:text-brand-black">
+    <div className="flex flex-col bg-white text-slate-900 dark:bg-brand-black dark:text-brand-white min-h-screen overflow-x-hidden transition-colors duration-500 selection:bg-brand-violet selection:text-brand-black">
       <Helmet>
         <title>Contact — Let's Build Something</title>
-        <meta name="description" content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build." />
+        <meta
+          name="description"
+          content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build."
+        />
         <link rel="canonical" href="https://champ-jet.vercel.app/contact" />
         <meta property="og:title" content="Contact — Let's Build Something" />
-        <meta property="og:description" content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build." />
+        <meta
+          property="og:description"
+          content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build."
+        />
         <meta property="og:url" content="https://champ-jet.vercel.app/contact" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://champ-jet.vercel.app/og-image.png" />
+        <meta
+          property="og:image"
+          content="https://champ-jet.vercel.app/og-image.png"
+        />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contact — Let's Build Something" />
-        <meta name="twitter:description" content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build." />
-        <meta name="twitter:image" content="https://champ-jet.vercel.app/og-image.png" />
+        <meta
+          name="twitter:title"
+          content="Contact — Let's Build Something"
+        />
+        <meta
+          name="twitter:description"
+          content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build."
+        />
+        <meta
+          name="twitter:image"
+          content="https://champ-jet.vercel.app/og-image.png"
+        />
       </Helmet>
       {/* --- HERO SECTION --- */}
-      <section className="relative pt-32 pb-16 px-4 md:px-6 md:pt-48 md:pb-24 overflow-hidden">
+      <section className="relative pt-32 pb-16 px-6 md:px-12 md:pt-48 md:pb-24 overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-brand-violet font-mono text-xs md:text-sm uppercase tracking-[0.3em] block mb-4">
+            <span className="text-brand-violet font-bold text-xs md:text-sm uppercase tracking-[0.2em] block mb-4">
               Inquiry
             </span>
-            <h1 className="text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter leading-[0.9] mb-8 md:mb-12">
+            <h1 className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter leading-[0.9] mb-8 md:mb-12 text-slate-900 dark:text-brand-white">
               Let's Start <br />{" "}
               <span className="text-brand-violet italic">Something.</span>
             </h1>
-            <p className="text-lg md:text-2xl text-brand-white/50 max-w-3xl leading-relaxed font-light">
+            <p className="text-lg md:text-2xl text-slate-500 dark:text-brand-white/60 max-w-3xl leading-relaxed font-light">
               Whether you have a fully realized brief or just a spark of an
               idea, we're here to turn it into reality.
             </p>
@@ -83,7 +101,7 @@ const Contact: React.FC = () => {
       </section>
 
       {/* --- CONTACT GRID --- */}
-      <section className="py-24 md:py-32 px-4 md:px-6 bg-brand-black">
+      <section className="py-24 md:py-40 px-6 md:px-12 bg-slate-50 dark:bg-brand-black transition-colors duration-500">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-24">
           {/* --- INFO SIDE --- */}
           <div className="flex flex-col justify-between lg:col-span-2">
@@ -93,50 +111,50 @@ const Contact: React.FC = () => {
               viewport={{ once: false }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-8">
+              <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-12 text-slate-900 dark:text-brand-white">
                 Get in touch with <br /> the{" "}
                 <span className="text-brand-violet italic">team.</span>
               </h2>
-              <div className="space-y-12 mt-16 md:mt-24">
+              <div className="space-y-16 mt-16 md:mt-24">
                 <div className="group">
-                  <span className="text-brand-violet font-mono text-xs uppercase tracking-widest block mb-2">
+                  <span className="text-brand-violet font-bold text-xs uppercase tracking-widest block mb-3">
                     Email Us
                   </span>
                   <a
                     href="mailto:princeoguru205@gmail.com"
-                    className="text-xl md:text-3xl font-bold hover:text-brand-violet transition-colors"
+                    className="text-2xl md:text-4xl font-bold hover:text-brand-violet transition-colors text-slate-900 dark:text-brand-white"
                   >
                     princeoguru205@gmail.com
                   </a>
                 </div>
                 <div className="group">
-                  <span className="text-brand-violet font-mono text-xs uppercase tracking-widest block mb-2">
+                  <span className="text-brand-violet font-bold text-xs uppercase tracking-widest block mb-3">
                     Location
                   </span>
-                  <p className="text-xl md:text-3xl font-bold">
+                  <p className="text-2xl md:text-4xl font-bold text-slate-900 dark:text-brand-white">
                     Remote / Global
                   </p>
                 </div>
                 <div className="group">
-                  <span className="text-brand-violet font-mono text-xs uppercase tracking-widest block mb-2">
+                  <span className="text-brand-violet font-bold text-xs uppercase tracking-widest block mb-3">
                     Socials
                   </span>
-                  <div className="flex gap-6 mt-4">
+                  <div className="flex gap-8 mt-6">
                     <a
                       href="#"
-                      className="text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest"
+                      className="text-slate-500 dark:text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest"
                     >
                       Instagram
                     </a>
                     <a
                       href="#"
-                      className="text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest"
+                      className="text-slate-500 dark:text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest"
                     >
                       Twitter / X
                     </a>
                     <a
                       href="#"
-                      className="text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest"
+                      className="text-slate-500 dark:text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest"
                     >
                       LinkedIn
                     </a>
@@ -149,9 +167,9 @@ const Contact: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
-              className="mt-24 p-8 border border-brand-white/10 bg-brand-white/[0.02] rounded-none"
+              className="mt-24 p-10 border border-slate-200 dark:border-brand-white/10 bg-white dark:bg-brand-white/[0.02] rounded-3xl"
             >
-              <p className="text-brand-white/60 text-sm leading-relaxed">
+              <p className="text-slate-600 dark:text-brand-white/60 text-sm leading-relaxed">
                 Typically responds immediately during business hours. For urgent
                 project inquiries, please include "PRIORITY" in your subject
                 line.
@@ -166,17 +184,17 @@ const Contact: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.8 }}
-              className="p-8 md:p-12 bg-brand-white/[0.03] border border-brand-white/10 rounded-none"
+              className="p-8 md:p-12 bg-white dark:bg-brand-white/[0.03] border border-slate-200 dark:border-brand-white/10 rounded-3xl shadow-sm dark:shadow-none"
             >
               {formState === "success" ? (
                 <div className="text-center py-20">
-                  <div className="w-16 h-16 bg-brand-violet rounded-full flex items-center justify-center mx-auto mb-6 text-brand-black text-2xl font-bold">
+                  <div className="w-16 h-16 bg-brand-violet rounded-full flex items-center justify-center mx-auto mb-6 text-brand-white text-2xl font-bold">
                     ✓
                   </div>
-                  <h3 className="text-3xl font-black tracking-tighter mb-4">
+                  <h3 className="text-3xl font-black tracking-tighter mb-4 text-slate-900 dark:text-brand-white">
                     Message Received.
                   </h3>
-                  <p className="text-brand-white/50 mb-8">
+                  <p className="text-slate-500 dark:text-brand-white/50 mb-8">
                     We'll be in touch shortly to discuss your vision.
                   </p>
                   <button
@@ -188,13 +206,13 @@ const Contact: React.FC = () => {
                 </div>
               ) : formState === "error" ? (
                 <div className="text-center py-20">
-                  <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-black text-2xl font-bold">
+                  <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-white text-2xl font-bold">
                     !
                   </div>
-                  <h3 className="text-3xl font-black tracking-tighter mb-4">
+                  <h3 className="text-3xl font-black tracking-tighter mb-4 text-slate-900 dark:text-brand-white">
                     Submission Failed.
                   </h3>
-                  <p className="text-brand-white/50 mb-8">
+                  <p className="text-slate-500 dark:text-brand-white/50 mb-8">
                     Something went wrong. Please try again later or email us
                     directly.
                   </p>
@@ -209,37 +227,37 @@ const Contact: React.FC = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
+                      <label className="text-slate-400 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
                         Full Name
                       </label>
                       <input
                         required
                         name="name"
                         type="text"
-                        className="w-full bg-transparent border-b border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-brand-white placeholder:text-brand-white/20"
+                        className="w-full bg-transparent border-b border-slate-200 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-slate-900 dark:text-brand-white placeholder:text-slate-300 dark:placeholder:text-brand-white/20"
                         placeholder="John Doe"
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
+                      <label className="text-slate-400 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
                         Email Address
                       </label>
                       <input
                         required
                         name="email"
                         type="email"
-                        className="w-full bg-transparent border-b border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-brand-white placeholder:text-brand-white/20"
+                        className="w-full bg-transparent border-b border-slate-200 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-slate-900 dark:text-brand-white placeholder:text-slate-300 dark:placeholder:text-brand-white/20"
                         placeholder="john@example.com"
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
+                    <label className="text-slate-400 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
                       Project Type
                     </label>
                     <select
                       name="project_type"
-                      className="w-full bg-brand-black border-b border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-brand-white"
+                      className="w-full bg-white dark:bg-brand-black border-b border-slate-200 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-slate-900 dark:text-brand-white"
                     >
                       <option value="studio">Champ Studio (Design)</option>
                       <option value="build">Champ Build (Development)</option>
@@ -255,13 +273,13 @@ const Contact: React.FC = () => {
                       required
                       name="message"
                       rows={4}
-                      className="w-full bg-transparent border-b border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-brand-white placeholder:text-brand-white/20 resize-none"
+                      className="w-full bg-transparent border-b border-slate-200 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-slate-900 dark:text-brand-white placeholder:text-slate-300 dark:placeholder:text-brand-white/20 resize-none"
                       placeholder="Tell us about your vision..."
                     />
                   </div>
                   <button
                     disabled={formState === "submitting"}
-                    className="w-full py-5 bg-brand-violet text-brand-black font-bold uppercase tracking-tighter hover:scale-[1.02] transition-transform disabled:opacity-50 disabled:hover:scale-100"
+                    className="w-full py-5 bg-brand-violet text-brand-white font-bold uppercase tracking-tighter hover:scale-[1.02] transition-transform disabled:opacity-50 disabled:hover:scale-100 rounded-full"
                   >
                     {formState === "submitting" ? "Sending..." : "Send Message"}
                   </button>
@@ -273,23 +291,23 @@ const Contact: React.FC = () => {
       </section>
 
       {/* --- FINAL SECTION --- */}
-      <section className="relative py-24 md:py-40 px-4 text-center min-h-140 bg-brand-black">
+      <section className="relative py-24 md:py-40 px-6 text-center bg-slate-900 dark:bg-brand-black transition-colors duration-500">
         <div className="max-w-4xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
           >
-            <span className="text-brand-violet font-mono text-xs uppercase tracking-[0.3em] block mb-6">
+            <span className="text-brand-violet font-bold text-xs uppercase tracking-[0.2em] block mb-6">
               Let's Build
             </span>
-            <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-12 leading-none">
+            <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-12 leading-none text-slate-900 dark:text-brand-white">
               Your digital <span className="italic">legacy</span> <br /> starts
               here.
             </h2>
             <Link
               to="/"
-              className="inline-block px-12 py-6 border border-brand-white/20 font-bold uppercase tracking-tighter hover:bg-brand-white hover:text-brand-black transition-all"
+              className="inline-block px-12 py-6 border border-slate-200 dark:border-brand-white/20 font-bold uppercase tracking-tighter hover:bg-brand-white hover:text-brand-black transition-all rounded-full text-slate-900 dark:text-brand-white"
             >
               Back to Home
             </Link>
