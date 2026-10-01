@@ -12,13 +12,18 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
       viewport={{ once: false }}
       transition={{ delay: (index % 3) * 0.1, duration: 0.8 }}
       whileHover={{ y: -10 }}
-      className={`group relative aspect-[16/10] md:aspect-[4/3] bg-brand-black/[0.03] dark:bg-brand-white/5 border border-brand-black/10 dark:border-brand-white/10 overflow-hidden rounded-3xl cursor-pointer transition-all duration-500 hover:border-brand-violet/30 ${isFullWidth ? "md:col-span-2" : "col-span-1"}`}
+      className={`group relative overflow-hidden rounded-3xl cursor-pointer transition-all duration-500 hover:border-brand-violet/30 ${isFullWidth ? "md:col-span-2" : "col-span-1"}`}
     >
+      <img
+        src={project.image}
+        alt={project.title}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/40 to-transparent z-10 opacity-60 group-hover:opacity-80 transition-opacity" />
       <div className="absolute inset-0 bg-brand-violet/10 group-hover:bg-brand-violet/20 transition-colors duration-500" />
       <div className="absolute top-6 right-6 z-30">
         <span className="bg-brand-violet text-brand-white text-[10px] font-bold uppercase px-3 py-1 rounded-full">
-          Placeholder
+          {project.tag || "Project"}
         </span>
       </div>
 
@@ -43,16 +48,20 @@ const Work: React.FC = () => {
       title: "Digital Product Design",
       category: "Visual Identity / UX",
       id: 1,
+      image: "/project1.jpg",
+      tag: "UX/UI",
     },
     {
       title: "Technical Implementation",
       category: "Product Design / Dev",
       id: 2,
+      image: "/project2.jpg",
+      tag: "Development",
     },
-    { title: "Custom Web Platform", category: "Web Development", id: 3 },
-    { title: "Strategic User Experience", category: "UX Strategy / UI", id: 4 },
-    { title: "Enterprise Interface", category: "Product Design", id: 5 },
-    { title: "Custom Build", category: "Product Development", id: 6 },
+    { title: "Custom Web Platform", category: "Web Development", id: 3, image: "/project3.jpg", tag: "Web" },
+    { title: "Strategic User Experience", category: "UX Strategy / UI", id: 4, image: "/project4.jpg", tag: "Strategy" },
+    { title: "Enterprise Interface", category: "Product Design", id: 5, image: "/project5.jpg", tag: "Enterprise" },
+    { title: "Custom Build", category: "Product Development", id: 6, image: "/project6.jpg", tag: "Custom" },
   ];
 
   return (

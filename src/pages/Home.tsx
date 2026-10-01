@@ -104,15 +104,17 @@ const Home: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-2xl text-black/60 dark:text-brand-white/60 max-w-3xl mx-auto mb-12 md:mb-20 leading-relaxed font-light px-4"
           >
-            Web design and development studio building fast, sharp sites for{" "}
+            We help{" "}
             <span className="text-black dark:text-brand-white font-medium">
               small
             </span>{" "}
             and{" "}
             <span className="text-black dark:text-brand-white font-medium">
-              medium sized
+              medium-sized businesses{" "}
             </span>{" "}
-            enterprises.
+            win more customers with fast,{" "}
+            <span className="text-brand-violet">SEO optimized</span> websites,
+            web platforms and brand identities built to perform from day one.
           </motion.p>
 
           <motion.div
@@ -143,7 +145,7 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto w-full">
           <SectionHeading
             subtitle="Capabilities"
-            title="A dual-pronged approach to digital growth."
+            title="Brand and build, under one roof."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -159,8 +161,9 @@ const Home: React.FC = () => {
                   Champ Studio
                 </h3>
                 <p className="text-black/60 dark:text-brand-white/60 text-lg leading-relaxed mb-10 max-w-md">
-                  Visual identity, UX/UI, and comprehensive design systems that
-                  scale your brand's presence.
+                  Visual identity, UX/UI and design systems at the core, with
+                  social media designs and brand materials to carry your brand
+                  across every platform.
                 </p>
                 <Link
                   to="/about"
@@ -186,8 +189,9 @@ const Home: React.FC = () => {
                   Champ Build
                 </h3>
                 <p className="text-black/60 dark:text-brand-white/60 text-lg leading-relaxed mb-10 max-w-md">
-                  Custom web applications and scalable digital infrastructure,
-                  built for extreme performance.
+                  We build fast, SEO optimized web applications and the
+                  infrastructure behind them, made to handle growth without
+                  slowing down.
                 </p>
                 <Link
                   to="/about"
@@ -209,29 +213,34 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto w-full">
           <SectionHeading
             subtitle="Selected Work"
-            title="Case studies — coming soon"
+            title="Case studies"
             center
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
               whileHover={{ scale: 0.98 }}
-              className="md:col-span-2 relative h-[400px] md:h-[600px] bg-black dark:bg-brand-black rounded-3xl overflow-hidden group cursor-pointer"
+              className="md:col-span-2 relative overflow-hidden rounded-3xl group cursor-pointer"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent dark:from-brand-black dark:via-brand-black/40 z-10" />
+              <img
+                src="./public/awk-group-cover-16x10.png"
+                alt="AwkGroup Website Redesign"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent dark:from-brand-black dark:via-brand-black/80 z-10" />
               <div className="absolute bottom-0 left-0 p-8 md:p-16 z-20">
                 <span className="text-brand-violet font-bold text-xs uppercase tracking-widest mb-3 block">
                   Project 01
                 </span>
                 <h4 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-4">
-                  Design & Dev Placeholder
+                  AwkGroup Website Redesign
                 </h4>
                 <p className="text-white/60 text-base md:text-lg mb-8 max-w-md hidden sm:block">
                   A representative project showcasing the approach to digital
                   excellence.
                 </p>
                 <span className="text-white font-bold uppercase text-xs tracking-widest border-b-2 border-brand-violet pb-1">
-                  Coming soon
+                  Completed project
                 </span>
               </div>
               <div className="absolute inset-0 bg-brand-violet/20 group-hover:bg-brand-violet/40 transition-colors duration-500" />
@@ -239,8 +248,13 @@ const Home: React.FC = () => {
 
             <motion.div
               whileHover={{ scale: 0.98 }}
-              className="relative h-[400px] md:h-[600px] bg-black dark:bg-brand-black rounded-3xl overflow-hidden group cursor-pointer"
+              className="relative overflow-hidden rounded-3xl group cursor-pointer"
             >
+              <img
+                src="./public/coming-soon-poster-square.png"
+                alt="Design & Dev Placeholder"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent dark:from-brand-black dark:via-brand-black/40 z-10" />
               <div className="absolute bottom-0 left-0 p-8 md:p-12 z-20">
                 <span className="text-brand-violet font-bold text-xs uppercase tracking-widest mb-3 block">
