@@ -20,6 +20,21 @@
     <title>champ — Creative solutions for real problems</title>
     <link rel="canonical" href="https://champ-jet.vercel.app/" />
     <meta name="google-site-verification" content="PASTE_CODE_HERE_WHEN_YOU_SET_UP_SEARCH_CONSOLE" />
+    <script>
+      (function() {
+        try {
+          const savedTheme = localStorage.getItem('theme');
+          const theme = savedTheme || 'light';
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {
+          console.error('Theme initialization failed', e);
+        }
+      })();
+    </script>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",

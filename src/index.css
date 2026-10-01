@@ -3,17 +3,19 @@
 @theme {
   --color-brand-violet: #5500FF;
   --color-brand-black: #0A0A0A;
-  --color-brand-white: #F9F9F9;
+  --color-brand-white: #FFFFFF;
   --font-inter: "Inter", sans-serif;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   body {
-    @apply bg-white text-slate-900 font-inter antialiased dark:bg-brand-black dark:text-brand-white;
+    @apply bg-white text-black font-inter antialiased dark:bg-brand-black dark:text-brand-white;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight text-slate-900 dark:text-brand-white;
+    @apply font-bold tracking-tight text-black dark:text-brand-white;
   }
 }
 

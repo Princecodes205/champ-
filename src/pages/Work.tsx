@@ -12,12 +12,12 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
       viewport={{ once: false }}
       transition={{ delay: (index % 3) * 0.1, duration: 0.8 }}
       whileHover={{ y: -10 }}
-      className={`group relative aspect-[16/10] md:aspect-[4/3] bg-brand-white/5 border border-brand-white/10 overflow-hidden rounded-3xl cursor-pointer transition-all duration-500 hover:border-brand-violet/30 ${isFullWidth ? "md:col-span-2" : "col-span-1"}`}
+      className={`group relative aspect-[16/10] md:aspect-[4/3] bg-brand-black/[0.03] dark:bg-brand-white/5 border border-brand-black/10 dark:border-brand-white/10 overflow-hidden rounded-3xl cursor-pointer transition-all duration-500 hover:border-brand-violet/30 ${isFullWidth ? "md:col-span-2" : "col-span-1"}`}
     >
       <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/40 to-transparent z-10 opacity-60 group-hover:opacity-80 transition-opacity" />
       <div className="absolute inset-0 bg-brand-violet/10 group-hover:bg-brand-violet/20 transition-colors duration-500" />
       <div className="absolute top-6 right-6 z-30">
-        <span className="bg-brand-violet text-brand-black text-[10px] font-bold uppercase px-3 py-1 rounded-full">
+        <span className="bg-brand-violet text-brand-white text-[10px] font-bold uppercase px-3 py-1 rounded-full">
           Placeholder
         </span>
       </div>
@@ -26,10 +26,10 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
         <span className="text-brand-violet font-bold text-xs uppercase tracking-widest mb-3 block">
           {project.category}
         </span>
-        <h3 className="text-3xl md:text-5xl font-black text-brand-white tracking-tighter mb-6">
+        <h3 className="text-3xl md:text-5xl font-black text-brand-black dark:text-brand-white tracking-tighter mb-6">
           {project.title}
         </h3>
-        <div className="flex items-center gap-2 text-brand-white/50 font-medium text-xs md:text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 duration-300">
+        <div className="flex items-center gap-2 text-brand-black/50 dark:text-brand-white/50 font-medium text-xs md:text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 duration-300">
           Coming soon <span className="text-brand-violet">→</span>
         </div>
       </div>
@@ -56,7 +56,7 @@ const Work: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col bg-white text-slate-900 dark:bg-brand-black dark:text-brand-white min-h-screen selection:bg-brand-violet selection:text-brand-black transition-colors duration-500">
+    <div className="flex flex-col bg-white text-black dark:bg-brand-black dark:text-brand-white min-h-screen selection:bg-brand-violet selection:text-brand-black transition-colors duration-500">
       <Helmet>
         <title>Work — Selected Projects & Methodology</title>
         <meta
@@ -111,7 +111,7 @@ const Work: React.FC = () => {
           <div className="hidden lg:block relative h-[400px] opacity-20">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-72 h-72 border border-brand-violet/30 rotate-45" />
-              <div className="absolute w-72 h-72 border border-brand-white/10 -rotate-45" />
+              <div className="absolute w-72 h-72 border border-white/10 -rotate-45" />
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@ const Work: React.FC = () => {
       </section>
 
       {/* --- METHODOLOGY SECTION --- */}
-      <section className="py-24 md:py-40 px-6 md:px-12 bg-slate-50 dark:bg-brand-black text-slate-900 dark:text-brand-white overflow-hidden transition-colors duration-500">
+      <section className="py-24 md:py-40 px-6 md:px-12 bg-black/[0.02] dark:bg-brand-black text-black dark:text-brand-white overflow-hidden transition-colors duration-500">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -140,7 +140,7 @@ const Work: React.FC = () => {
             <span className="text-brand-violet font-bold text-xs md:text-sm uppercase tracking-[0.2em] block mb-4">
               Our Approach
             </span>
-            <h2 className="text-5xl md:text-7xl text-brand-black tracking-tighter leading-none mb-8 font-black">
+            <h2 className="text-5xl md:text-7xl text-black dark:text-brand-white tracking-tighter leading-none mb-8 font-black">
               <span className="relative inline-block px-2">
                 <span className="absolute inset-0 -skew-x-12 bg-brand-violet"></span>
                 <span className="relative">Execution</span>
@@ -148,13 +148,13 @@ const Work: React.FC = () => {
               <br />
               <span className="italic text-brand-violet">with Intent.</span>
             </h2>
-            <p className="text-lg md:text-2xl text-brand-black/70 leading-relaxed font-light">
+            <p className="text-lg md:text-2xl text-black/70 dark:text-brand-white/70 leading-relaxed font-light">
               We don't believe in "standard" workflows. Every project is a
               unique technical challenge that requires a bespoke strategy. Our
               process is a rigorous loop of discovery and execution, where
               design and code evolve in tandem.
             </p>
-            <p className="text-lg md:text-2xl text-brand-black/70 leading-relaxed font-light">
+            <p className="text-lg md:text-2xl text-black/70 dark:text-brand-white/70 leading-relaxed font-light">
               By merging the creativity of a studio with the discipline of a
               product team, we ensure that the final product isn't just visually
               stunning—it's structurally sound and built to scale.
@@ -184,7 +184,7 @@ const Work: React.FC = () => {
               {
                 step: "02",
                 title: "Strategy",
-                desc: " la Defining the architectural blueprint and visual language of the product.",
+                desc: "Defining the architectural blueprint and visual language of the product.",
               },
               {
                 step: "03",
@@ -194,15 +194,14 @@ const Work: React.FC = () => {
               {
                 step: "04",
                 title: "Delivery",
-                Ldesc:
-                  "Rigorous testing, optimization, and a seamless launch into the wild.",
+                desc: "Rigorous testing, optimization, and a seamless launch into the wild.",
               },
             ].map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="group relative p-8 border border-brand-white/10 bg-brand-white/[0.02] rounded-3xl hover:border-brand-violet/30 transition-all duration-500"
+                className="group relative p-8 border border-black/10 dark:border-brand-white/10 bg-white dark:bg-brand-white/[0.02] rounded-3xl hover:border-brand-violet/30 transition-all duration-500"
               >
                 <div className="text-brand-violet font-black text-5xl md:text-6xl mb-6 opacity-20 group-hover:opacity-100 transition-opacity">
                   {item.step}
@@ -210,7 +209,7 @@ const Work: React.FC = () => {
                 <h3 className="text-xl md:text-2xl font-black tracking-tighter mb-4">
                   {item.title}
                 </h3>
-                <p className="text-brand-white/60 text-sm md:text-base leading-relaxed">
+                <p className="text-black/60 dark:text-brand-white/60 text-sm md:text-base leading-relaxed">
                   {item.desc}
                 </p>
               </motion.div>
@@ -224,7 +223,7 @@ const Work: React.FC = () => {
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="grid grid-cols-12 h-full w-full">
             {[...Array(144)].map((_, i) => (
-              <div key={i} className="border border-brand-black" />
+              <div key={i} className="border border-brand-black dark:border-brand-white" />
             ))}
           </div>
         </div>
