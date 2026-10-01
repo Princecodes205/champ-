@@ -174,7 +174,7 @@ const Layout: React.FC = () => {
                 >
                   <Link
                     to="/contact"
-                    onClick={() => setIsMenuPOpen(false)}
+                    onClick={() => setIsMenuOpen(false)}
                     className="text-2xl font-bold uppercase tracking-widest text-brand-white bg-brand-violet px-10 py-4 rounded-full hover:bg-white hover:text-brand-black transition-all"
                   >
                     Contact
