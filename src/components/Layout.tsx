@@ -61,10 +61,10 @@ const Layout: React.FC = () => {
   return (
     <div className="min-h-screen font-inter flex flex-col transition-colors duration-500 bg-white text-black dark:bg-brand-black dark:text-brand-white">
       <nav
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-6 md:px-12 py-4 ${
+        className={`fixed top-0 left-0 right-0 z-[300] transition-all duration-500 px-6 md:px-12 py-4 ${
           scrolled
-            ? "bg-white/90 dark:bg-brand-black/90 backdrop-blur-md border-b border-black/10 dark:border-white/10 py-3"
-            : "bg-transparent py-6"
+            ? "bg-white/95 dark:bg-brand-black/95 backdrop-blur-md border-b border-black/10 dark:border-white/10 py-3"
+            : "bg-white dark:bg-brand-black py-6"
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -137,54 +137,68 @@ const Layout: React.FC = () => {
             </button>
           </div>
         </div>
-
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              key="mobile-menu"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="fixed inset-0 z-[100] flex flex-col justify-center items-center transition-colors duration-500 bg-white dark:bg-brand-black"
+        {isMenuOpen && (
+          <div className="absolute top-0 left-0 right-0 flex justify-end px-6 py-4 z-[210] md:hidden">
+            <button
+              className="p-3 text-black dark:text-brand-white bg-brand-violet/10 rounded-full backdrop-blur-md"
+              onClick={() => setIsMenuOpen(false)}
+              aria-label="Close menu"
             >
-              <div className="flex flex-col items-center gap-10 text-center">
-                {navLinks.map((link, i) => (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    key={link.path}
-                  >
-                    <Link
-                      to={link.path}
-                      className="text-5xl font-black uppercase tracking-tighter hover:text-brand-violet transition-colors text-black dark:text-brand-white"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
+              <div className="w-6 h-6 flex items-center justify-center relative">
+                <span className="absolute w-full h-0.5 bg-current rotate-45"></span>
+                <span className="absolute w-full h-0.5 bg-current -rotate-45"></span>
+              </div>
+            </button>
+          </div>
+        )}
+      </nav>
+
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex flex-col justify-center items-center transition-colors duration-500 bg-white dark:bg-brand-black"
+          >
+            <div className="flex flex-col items-center gap-10 text-center">
+              {navLinks.map((link, i) => (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="mt-6"
+                  transition={{ delay: i * 0.1 }}
+                  key={link.path}
                 >
                   <Link
-                    to="/contact"
+                    to={link.path}
+                    className="text-5xl font-black uppercase tracking-tighter hover:text-brand-violet transition-colors text-black dark:text-brand-white"
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-2xl font-bold uppercase tracking-widest text-brand-white bg-brand-violet px-10 py-4 rounded-full hover:bg-brand-white hover:text-brand-black dark:hover:bg-brand-black dark:hover:text-brand-white transition-all"
                   >
-                    Contact
+                    {link.name}
                   </Link>
                 </motion.div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="mt-6"
+              >
+                <Link
+                  to="/contact"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-2xl font-bold uppercase tracking-widest text-brand-white bg-brand-violet px-10 py-4 rounded-full hover:bg-brand-white hover:text-brand-black dark:hover:bg-brand-black dark:hover:text-brand-white transition-all"
+                >
+                  Contact
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      <main className="flex-grow pt-0">
+      <main className="flex-grow pt-24">
         <Outlet />
       </main>
 
@@ -203,31 +217,51 @@ const Layout: React.FC = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h4 className="font-bold uppercase tracking-widest text-xs mb-2 text-black dark:text-brand-white">Quick Links</h4>
+            <h4 className="font-bold uppercase tracking-widest text-xs mb-2 text-black dark:text-brand-white">
+              Quick Links
+            </h4>
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
-                <Link key={link.path} to={link.path} className="text-sm transition-colors hover:text-brand-violet text-black/60 dark:text-white/60">
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className="text-sm transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
+                >
                   {link.name}
                 </Link>
               ))}
-              <Link to="/contact" className="text-sm transition-colors hover:text-brand-violet text-black/60 dark:text-white/60">
+              <Link
+                to="/contact"
+                className="text-sm transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
+              >
                 Contact
               </Link>
             </div>
           </div>
 
           <div className="flex flex-col gap-6">
-            <h4 className="font-bold uppercase tracking-widest text-xs mb-2 text-black dark:text-brand-white">Connect</h4>
+            <h4 className="font-bold uppercase tracking-widest text-xs mb-2 text-black dark:text-brand-white">
+              Connect
+            </h4>
             <div className="flex gap-6">
-              <a href="#" className="transition-colors hover:text-brand-violet text-black/60 dark:text-white/60">
+              <a
+                href="#"
+                className="transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
+              >
                 Twitter
               </a>
-              <a href="#" className="transition-colors hover:text-brand-violet text-black/60 dark:text-white/60">
+              <a
+                href="#"
+                className="transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
+              >
                 LinkedIn
               </a>
-              <a href="#" className="transition-colors hover:text-brand-violet text-black/60 dark:text-white/60">
+              <a
+                href="#"
+                className="transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
+              >
                 GitHub
-              </a >
+              </a>
             </div>
             <div className="text-[10px] uppercase tracking-widest pt-6 border-t border-black/5 dark:border-white/5 text-black/40 dark:text-white/30">
               © {new Date().getFullYear()} Champ Agency. All rights reserved.
@@ -237,6 +271,6 @@ const Layout: React.FC = () => {
       </footer>
     </div>
   );
-}
+};
 
 export default Layout;
