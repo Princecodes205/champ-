@@ -84,14 +84,19 @@ const About: React.FC = () => {
               The Agency
             </span>
             <h1 className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter leading-[0.9] mb-8 md:mb-12 text-black dark:text-brand-white">
-              Where <span className="text-brand-violet italic">Design</span>{" "}
-              <br /> Meets Execution.
+              We Build <span className="text-brand-violet italic">Brands</span>{" "}
+              <br /> That Win Clients.
             </h1>
             <p className="text-lg md:text-2xl text-black/60 dark:text-brand-white/60 max-w-3xl leading-relaxed font-light">
-              champ is a design-led studio for businesses serious about growth.
-              Operated as a focused solo practice, champ pairs sharp creative
-              thinking with clean, reliable development — the kind of result
-              that gets diluted the moment more people get involved.
+              champ is a global brand and web studio for businesses serious
+              about growth. Most businesses show up inconsistent: a logo here, a
+              dated website there, nothing that earns trust or gets remembered.
+              We fix that by shaping your whole brand, from{" "}
+              <span className="text-brand-violet italic">brand identity</span>{" "}
+              and visuals to the website that carries them,{" "}
+              <span className="text-brand-violet italic">SEO integrated</span>{" "}
+              to make your brand stand out from competitors, into one sharp,
+              clear presence that makes the right clients choose you.
             </p>
           </motion.div>
         </div>
@@ -108,7 +113,7 @@ const About: React.FC = () => {
             className="mb-12 md:mb-20 text-center"
           >
             <span className="text-brand-violet font-bold text-xs md:text-sm uppercase tracking-[0.2em] block mb-4">
-              Our Philosophy
+              champ Philosophy
             </span>
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-tight text-black dark:text-brand-white">
               Design is not a layer. It is the foundation.
@@ -154,6 +159,79 @@ const About: React.FC = () => {
         </div>
       </section>
 
+      {/* --- BUILD PHILOSOPHY SECTION --- */}
+      <section className="relative pt-0 pb-24 md:pt-0 md:pb-40 px-6 md:px-12 bg-black/[0.02] dark:bg-brand-black text-black dark:text-brand-white z-10 transition-colors duration-500">
+        <div className="max-w-4xl mx-auto relative z-20">
+          <div className="border-t border-black/10 dark:border-white/10 mb-8 md:mb-12" />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center mb-12 md:mb-20 text-center"
+          >
+            <div className="flex flex-col items-center mb-6">
+              <div className="w-px h-8 md:h-10 bg-black/10 dark:bg-white/10" />
+              <span className="text-black/40 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-[0.2em] mt-2">
+                DESIGN → BUILD
+              </span>
+            </div>
+            <span className="text-brand-violet font-bold text-xs md:text-sm uppercase tracking-[0.2em] block mb-4">
+              BUILD PHILOSOPHY
+            </span>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-tight text-black dark:text-brand-white">
+              A website is not a page. <br /> It is your business, open 24/7.
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-12 mt-12"
+          >
+            <p className="text-xl md:text-2xl leading-relaxed font-light text-center text-black dark:text-brand-white">
+              We reject the notion that development is just making a design
+              work. To us, code is what makes a brand dependable: how fast it
+              loads, how safely it runs, and how easily it grows. We believe the
+              best websites are built clean from the first line, so they stay
+              fast, stable, and simple to maintain long after launch.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-12 border-t border-black/10 dark:border-white/10">
+              <div className="space-y-4">
+                <div className="text-brand-violet font-bold text-xs uppercase tracking-widest">
+                  SPEED
+                </div>
+                <p className="text-lg leading-relaxed text-black/80 dark:text-brand-white/80">
+                  Clean, structured code that executes efficiently. No fragile
+                  shortcuts.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <div className="text-brand-violet font-bold text-xs uppercase tracking-widest">
+                  OWNERSHIP
+                </div>
+                <p className="text-lg leading-relaxed text-black/80 dark:text-brand-white/80">
+                  Built so you can update your own content, and any developer
+                  can pick it up later.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <div className="text-brand-violet font-bold text-xs uppercase tracking-widest">
+                  SALES
+                </div>
+                <p className="text-lg leading-relaxed text-black/80 dark:text-brand-white/80">
+                  Your website is your best salesperson. We build it to convert
+                  visitors into leads, and leads into clients.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* --- DUALITY SECTION --- */}
       <section className="relative py-24 md:py-40 px-6 md:px-12 bg-white dark:bg-brand-black transition-colors duration-500">
         <div className="max-w-7xl mx-auto">
@@ -161,7 +239,7 @@ const About: React.FC = () => {
             subtitle="The Duality"
             title={
               <>
-                One Studio, <br /> Two{" "}
+                One Brand, <br /> Two{" "}
                 <span className="text-brand-violet">Focused</span> <br />{" "}
                 Disciplines.
               </>
@@ -187,9 +265,10 @@ const About: React.FC = () => {
                 </h3>
                 <p className="text-black/60 dark:text-brand-white/60 text-lg leading-relaxed mb-8 max-sm:text-left">
                   The creative heart of the agency. Specializing in brand
-                  strategy, visual identity, and high-fidelity UX/UI design. We
-                  build the emotional connection between a brand and its users,
-                  ensuring every touchpoint is a reflection of quality.
+                  strategy, visual identity, social media, and high-fidelity
+                  UX/UI design. We build the emotional connection between a
+                  brand and its users, ensuring every touchpoint is a reflection
+                  of quality.
                 </p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                   {[
@@ -226,16 +305,17 @@ const About: React.FC = () => {
                   Champ Build
                 </h3>
                 <p className="text-black/60 dark:text-brand-white/60 text-lg leading-relaxed mb-8 max-sm:text-left">
-                  The technical side. Custom web applications, clean
-                  infrastructure, and fast, reliable builds. We turn ideas into
-                  software that actually holds up as the business grows.
+                  The technical side. Custom web applications with SEO
+                  integration, clean infrastructure, mobile apps, and fast,
+                  reliable builds. We turn ideas into software that actually
+                  holds up as the business grows.
                 </p>
-                <ul className="grid grid-cols-s-2 gap-4 mb-8">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                   {[
                     "Custom Web Apps",
+                    "API Integration",
                     "Scalable Architecture",
                     "Performance Opt.",
-                    "API Integration",
                   ].map((item) => (
                     <li
                       key={item}
@@ -257,7 +337,10 @@ const About: React.FC = () => {
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="grid grid-cols-12 h-full w-full">
             {[...Array(80)].map((_, i) => (
-              <div key={i} className="border border-white" />
+              <div
+                key={i}
+                className="border border-brand-black dark:border-brand-white"
+              />
             ))}
           </div>
         </div>
@@ -273,7 +356,7 @@ const About: React.FC = () => {
           </motion.h2>
           <Link
             to="/contact"
-            className="inline-block px-12 py-6 bg-brand-violet text-brand-white font-bold uppercase tracking-widest text-lg hover:scale-105 transition-transform duration-300 rounded-full hover:bg-brand-white hover:text-brand-black dark:bg-brand-black dark:text-brand-violet dark:hover:bg-brand-violet dark:hover:text-brand-white"
+            className="inline-block px-12 py-6 bg-brand-violet text-brand-white font-bold uppercase tracking-widest text-lg hover:scale-105 transition-all duration-300 rounded-full border-2 border-transparent hover:bg-white hover:text-brand-black hover:border-brand-black dark:bg-brand-black dark:text-brand-violet dark:hover:bg-brand-white dark:hover:text-brand-black dark:border-brand-white dark:hover:border-brand-black"
           >
             Get in Touch
           </Link>
