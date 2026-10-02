@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import OptimizedImage from "../components/OptimizedImage";
 
 const SectionHeading = ({
   title,
@@ -222,11 +223,13 @@ const Home: React.FC = () => {
               whileHover={{ scale: 0.98 }}
               className="md:col-span-2 relative overflow-hidden rounded-3xl group cursor-pointer"
             >
-              <img
-                src="/awk-group-cover-16x10.png"
-                alt="AwkGroup Website Redesign"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+            <OptimizedImage
+              src="/awk-group-cover-16x10.png"
+              alt="AwkGroup Website Redesign"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              aspectRatio="16/10"
+            />
+
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent dark:from-brand-black dark:via-brand-black/80 z-10" />
               <div className="absolute bottom-0 left-0 p-8 md:p-16 z-20">
                 <span className="text-brand-violet font-bold text-xs uppercase tracking-widest mb-3 block">
@@ -250,11 +253,13 @@ const Home: React.FC = () => {
               whileHover={{ scale: 0.98 }}
               className="relative overflow-hidden rounded-3xl group cursor-pointer"
             >
-              <img
-                src="/coming-soon-poster-square.png"
-                alt="Design & Dev Placeholder"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+            <OptimizedImage
+              src="/coming-soon-poster-square.png"
+              alt="Design & Dev Placeholder"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              aspectRatio="1/1"
+            />
+
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent dark:from-brand-black dark:via-brand-black/40 z-10" />
               <div className="absolute bottom-0 left-0 p-8 md:p-12 z-20">
                 <span className="text-brand-violet font-bold text-xs uppercase tracking-widest mb-3 block">

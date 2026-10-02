@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import OptimizedImage from "./OptimizedImage";
 
 const Layout: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,13 +70,15 @@ const Layout: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link to="/" className="relative z-[110] group flex items-center">
-            <motion.img
+            <OptimizedImage
               src={theme === "dark" ? "/logo-white.png" : "/logo-black.png"}
               alt="Champ Logo"
+              width={64}
+              height={64}
+              priority
               className="w-14 h-14 md:w-16 md:h-16 object-contain"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             />
+
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -205,11 +208,14 @@ const Layout: React.FC = () => {
       <footer className="border-t border-black/10 dark:border-white/10 px-6 md:px-12 py-16 transition-colors duration-500 bg-white dark:bg-brand-black">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="flex flex-col gap-6">
-            <img
+            <OptimizedImage
               src={theme === "dark" ? "/logo-white.png" : "/logo-black.png"}
               alt="Champ Logo"
+              width={64}
+              height={64}
               className="w-16 h-16 object-contain"
             />
+
             <p className="text-sm leading-relaxed max-w-xs text-black/60 dark:text-white/60">
               Creative solutions for real problems. Crafting high-impact digital
               experiences.

@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import OptimizedImage from "../components/OptimizedImage";
 
 const ProjectCard = ({ project, index }: { project: any; index: number }) => {
   const isFullWidth = index % 3 === 0;
@@ -14,11 +15,13 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
       whileHover={{ y: -10 }}
       className={`group relative overflow-hidden rounded-3xl cursor-pointer transition-all duration-500 hover:border-brand-violet/30 ${isFullWidth ? "md:col-span-2" : "col-span-1"}`}
     >
-      <img
-        src={project.image}
-        alt={project.title}
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-      />
+    <OptimizedImage
+      src={project.image}
+      alt={project.title}
+      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      aspectRatio="4/3"
+    />
+
       <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/40 to-transparent z-10 opacity-60 group-hover:opacity-80 transition-opacity" />
       <div className="absolute inset-0 bg-brand-violet/10 group-hover:bg-brand-violet/20 transition-colors duration-500" />
       <div className="absolute top-6 right-6 z-30">
