@@ -223,7 +223,7 @@ const Home: React.FC = () => {
               className="md:col-span-2 relative overflow-hidden rounded-3xl group cursor-pointer"
             >
               <img
-                src="./public/awk-group-cover-16x10.png"
+                src="/awk-group-cover-16x10.png"
                 alt="AwkGroup Website Redesign"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
@@ -251,7 +251,7 @@ const Home: React.FC = () => {
               className="relative overflow-hidden rounded-3xl group cursor-pointer"
             >
               <img
-                src="./public/coming-soon-poster-square.png"
+                src="/coming-soon-poster-square.png"
                 alt="Design & Dev Placeholder"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
@@ -261,7 +261,7 @@ const Home: React.FC = () => {
                   Project 02
                 </span>
                 <h4 className="text-2xl md:text-3xl font-black text-white tracking-tighter mb-4">
-                  Design & Dev Placeholder
+                  G-Tech Project
                 </h4>
                 <span className="text-white font-bold uppercase text-xs tracking-widest border-b-2 border-brand-violet pb-1">
                   Coming soon
