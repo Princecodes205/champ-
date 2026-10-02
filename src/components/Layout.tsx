@@ -78,7 +78,6 @@ const Layout: React.FC = () => {
               priority
               className="w-14 h-14 md:w-16 md:h-16 object-contain"
             />
-
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -254,19 +253,13 @@ const Layout: React.FC = () => {
                 href="#"
                 className="transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
               >
-                Twitter
+                Instagram
               </a>
               <a
                 href="#"
                 className="transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
               >
                 LinkedIn
-              </a>
-              <a
-                href="#"
-                className="transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
-              >
-                GitHub
               </a>
             </div>
             <div className="text-[10px] uppercase tracking-widest pt-6 border-t border-black/5 dark:border-white/5 text-black/40 dark:text-white/30">

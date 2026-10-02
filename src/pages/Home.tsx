@@ -26,7 +26,11 @@ const SectionHeading = ({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}
-      className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-[1.1] text-black dark:text-brand-white"
+      className={`font-black tracking-tighter leading-[1.1] text-black dark:text-brand-white ${
+        subtitle === "// WHY CHAMP"
+          ? "text-2xl sm:text-2xl md:text-2xl"
+          : "text-4xl sm:text-5xl md:text-7xl"
+      }`}
     >
       {title}
     </motion.h2>
@@ -146,7 +150,7 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto w-full">
           <SectionHeading
             subtitle="Capabilities"
-            title="Brand and build, under one roof."
+            title="Brand and build,   Under one roof."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -223,12 +227,12 @@ const Home: React.FC = () => {
               whileHover={{ scale: 0.98 }}
               className="md:col-span-2 relative overflow-hidden rounded-3xl group cursor-pointer"
             >
-            <OptimizedImage
-              src="/awk-group-cover-16x10.png"
-              alt="AwkGroup Website Redesign"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              aspectRatio="16/10"
-            />
+              <OptimizedImage
+                src="/awk-group-cover-16x10.png"
+                alt="AwkGroup Website Redesign"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                aspectRatio="16/10"
+              />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent dark:from-brand-black dark:via-brand-black/80 z-10" />
               <div className="absolute bottom-0 left-0 p-8 md:p-16 z-20">
@@ -253,12 +257,12 @@ const Home: React.FC = () => {
               whileHover={{ scale: 0.98 }}
               className="relative overflow-hidden rounded-3xl group cursor-pointer"
             >
-            <OptimizedImage
-              src="/coming-soon-poster-square.png"
-              alt="Design & Dev Placeholder"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              aspectRatio="1/1"
-            />
+              <OptimizedImage
+                src="/coming-soon-poster-square.png"
+                alt="Design & Dev Placeholder"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                aspectRatio="1/1"
+              />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent dark:from-brand-black dark:via-brand-black/40 z-10" />
               <div className="absolute bottom-0 left-0 p-8 md:p-12 z-20">
@@ -290,43 +294,125 @@ const Home: React.FC = () => {
       {/* --- VISION TEASER --- */}
       <section className="relative py-24 md:py-40 px-6 md:px-12 bg-black/[0.02] dark:bg-brand-black overflow-hidden transition-colors duration-500">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 items-center">
-          <div className="relative order-2 md:order-1">
+          <div className="relative order-2 md:order-1 flex items-start">
             <motion.div
               initial={{ opacity: 0, rotate: -5 }}
               whileInView={{ opacity: 1, rotate: 0 }}
               viewport={{ once: false }}
-              className="relative z-10 aspect-square max-w-sm mx-auto bg-black/5 dark:bg-brand-white/5 border border-black/10 dark:border-brand-white/10 p-12 rounded-3xl backdrop-blur-sm"
+              className="relative z-10 w-full max-w-sm bg-white dark:bg-brand-white/[0.02] border border-black/10 dark:border-brand-white/10 p-4 md:p-6 rounded-sm backdrop-blur-sm"
+              style={{
+                backgroundImage: `radial-gradient(circle, currentColor 1px, transparent 1px)`,
+                backgroundSize: "20px 20px",
+                color: "rgba(150, 150, 150, 0.15)",
+              }}
             >
-              <div className="flex flex-col h-full justify-center items-center text-center">
-                <div className="text-2xl md:text-3xl font-black tracking-tighter text-black dark:text-brand-white">
-                  The Vision
+              <div className="flex flex-col items-start text-left">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-brand-violet mb-6 opacity-70">
+                  // PRINCIPLES
+                </span>
+                <div className="flex flex-col w-full">
+                  {[
+                    {
+                      id: "01",
+                      head: "Clarity",
+                      text: "Design and digital experiences should communicate value instantly.",
+                    },
+                    {
+                      id: "02",
+                      head: "Honesty",
+                      text: "Clear scope, clear timelines, and straight advice on what will and won't work, before we build anything.",
+                    },
+                    {
+                      id: "03",
+                      head: "Creativity",
+                      text: "Original design shaped around your brand. Never a recycled template.",
+                    },
+                  ].map((item, i, arr) => (
+                    <motion.div
+                      key={item.id}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.15, duration: 0.5 }}
+                      className={`grid grid-cols-[auto_1fr] gap-4 py-4 ${
+                        i !== arr.length - 1
+                          ? "border-b border-black/10 dark:border-brand-white/10"
+                          : ""
+                      }`}
+                    >
+                      <span className="text-brand-violet font-mono text-xs font-black tabular-nums">
+                        {item.id}
+                      </span>
+                      <div className="flex flex-col">
+                        <span className="font-bold text-black dark:text-brand-white text-sm md:text-base mb-1">
+                          {item.head}
+                        </span>
+                        <span className="text-black/60 dark:text-brand-white/60 text-xs md:text-sm leading-relaxed">
+                          {item.text}
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </motion.div>
-            <div className="absolute -top-10 -left-10 w-48 h-48 bg-brand-violet/30 blur-3xl rounded-full" />
-            <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-brand-violet/20 blur-3xl rounded-full" />
           </div>
 
           <div className="order-1 md:order-2 text-center md:text-left">
             <SectionHeading
-              subtitle="Our Story"
-              title="More than an agency. A technical partner."
+              subtitle="// WHY CHAMP"
+              title="Your website is your first impression. We design it to win clients."
               center={false}
             />
             <p className="text-lg md:text-xl text-black/60 dark:text-brand-white/60 leading-relaxed mb-10 md:mb-16 px-4 md:px-0">
-              We believe the most successful products are those where design
-              doesn't just "skin" the technology, but evolves with it. Champ was
-              founded to bring this rigorous harmony to the digital landscape.
+              People judge your business in seconds. If your site is slow,
+              outdated, or confusing, you're leaving money on the table. Champ
+              combines high-end design with technical precision to ensure your
+              first impression is unforgettable and your site is built to
+              convert.
             </p>
+            <div className="flex flex-col gap-6 mb-10 md:mb-16 px-4 md:px-0">
+              {[
+                {
+                  label: "Fast",
+                  text: "SEO integrated and Optimized to load quickly, even on weak connections.",
+                },
+                {
+                  label: "Easy",
+                  text: "Update your own content without calling a developer.",
+                },
+                {
+                  label: "Yours",
+                  text: "Clean handover, with support after launch.",
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false }}
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  className="group flex gap-4 border-t border-black/10 dark:border-brand-white/10 pt-4"
+                >
+                  <span className="text-brand-violet font-mono text-xs tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <span className="font-bold text-black dark:text-brand-white text-sm md:text-base mr-2">
+                      {item.label}.
+                    </span>
+                    <span className="text-black/60 dark:text-brand-white/60 text-sm md:text-base">
+                      {item.text}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
             <div className="px-4 md:px-0">
               <Link
-                to="/about"
-                className="inline-flex items-center gap-3 font-bold uppercase text-xs tracking-widest text-brand-violet group"
+                to="/contact"
+                className="inline-block px-10 py-5 bg-brand-violet text-brand-white dark:bg-brand-black dark:text-brand-white font-bold uppercase tracking-widest text-xs md:text-sm hover:scale-105 transition-transform duration-300 shadow-xl shadow-brand-violet/20 rounded-full"
               >
-                Read Our Full Story{" "}
-                <span className="group-hover:translate-x-2 transition-transform duration-300">
-                  →
-                </span>
+                Start your project →
               </Link>
             </div>
           </div>

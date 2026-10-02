@@ -38,14 +38,6 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   const handleError = () => {
     if (retryCount < 2) {
       setRetryCount((prev) => prev + 1);
-      // Force reload by adding a timestamp to the src
-      const currentSrc = new URL(src, window.location.origin).toString();
-      const separator = currentSrc.includes('?') ? '&' : '?';
-      const retrySrc = `${currentSrc}${separator}retry=${retryCount + 1}`;
-
-      // We can't easily change the src of the img inside the picture without a ref
-      // But since this is a functional component, the simplest way to trigger a reload
-      // is to let the component re-render or use a ref.
     } else {
       setHasError(true);
     }
@@ -59,7 +51,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
       }}
     >
       {/* Neutral theme-aware placeholder - only show if we have a specific aspectRatio or dimensions, otherwise it's likely a logo/icon and shouldn't have a background box */}
-      {!isLoaded && (aspectRatio || width || height) && (
+      {!isLoaded && !hasError && (aspectRatio || width || height) && (
         <motion.div
           initial={{ opacity: 1 }}
           animate={{ opacity: 0 }}
@@ -69,13 +61,6 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
       )}
 
       <picture>
-        {/*
-          REMOVE source tags for local development.
-          vite-imagetools generates variants at build time,
-          but during dev, these .avif/.webp files don't exist in public/,
-          causing the browser to try and load them and potentially fail
-          or delay the fallback.
-        */}
         <img
           src={src}
           alt={alt}
@@ -86,7 +71,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
           {...({ fetchPriority: priority ? "high" : "auto" } as any)}
           onLoad={handleLoad}
           onError={handleError}
-          className={`w-full h-full object-cover transition-opacity duration-700 ${
+          className={`w-full h-full object-cover transition-opacity duration-500 ${
             isLoaded ? "opacity-100" : "opacity-0"
           } ${className}`}
         />
