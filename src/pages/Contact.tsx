@@ -52,25 +52,22 @@ const Contact: React.FC = () => {
           content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build."
         />
         <link rel="canonical" href="https://champ-jet.vercel.app/contact" />
-        <meta
-          property="og:title"
-          content="Contact — Let's Build Something"
-        />
+        <meta property="og:title" content="Contact — Let's Build Something" />
         <meta
           property="og:description"
           content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build."
         />
-        <meta property="og:url" content="https://champ-jet.vercel.app/contact" />
+        <meta
+          property="og:url"
+          content="https://champ-jet.vercel.app/contact"
+        />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
           content="https://champ-jet.vercel.app/og-image.png"
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Contact — Let's Build Something"
-        />
+        <meta name="twitter:title" content="Contact — Let's Build Something" />
         <meta
           name="twitter:description"
           content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build."
@@ -96,8 +93,9 @@ const Contact: React.FC = () => {
               <span className="text-brand-violet italic">Something.</span>
             </h1>
             <p className="text-lg md:text-2xl text-black/60 dark:text-brand-white/60 max-w-3xl leading-relaxed font-light">
-              Whether you have a fully realized brief or just a spark of an
-              idea, we're here to turn it into reality.
+              Tell us about your business and what you want to achieve. We'll
+              reply with a clear plan for a brand and website that brings you
+              clients.
             </p>
           </motion.div>
         </div>
@@ -144,22 +142,21 @@ const Contact: React.FC = () => {
                   </span>
                   <div className="flex gap-8 mt-6">
                     <a
-                      href="#"
+                      href="https://www.instagram.com/champsvisuals01/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-black/60 dark:text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest"
                     >
                       Instagram
                     </a>
+
                     <a
-                      href="#"
+                      href="https://wa.me/Champ_Oguru?text=Hi%20champ%2C%20I%27d%20like%20to%20start%20a%20project."
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-black/60 dark:text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest"
                     >
-                      Twitter / X
-                    </a>
-                    <a
-                      href="#"
-                      className="text-black/60 dark:text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest"
-                    >
-                      LinkedIn
+                      Whatsapp
                     </a>
                   </div>
                 </div>

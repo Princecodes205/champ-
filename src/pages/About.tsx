@@ -356,7 +356,7 @@ const About: React.FC = () => {
           </motion.h2>
           <Link
             to="/contact"
-            className="inline-block px-12 py-6 bg-brand-violet text-brand-white font-bold uppercase tracking-widest text-lg hover:scale-105 transition-all duration-300 rounded-full border-2 border-transparent hover:bg-white hover:text-brand-black hover:border-brand-black dark:bg-brand-black dark:text-brand-violet dark:hover:bg-brand-white dark:hover:text-brand-black dark:border-brand-white dark:hover:border-brand-black"
+            className="inline-block px-12 py-6 bg-brand-violet text-brand-white font-bold uppercase tracking-widest text-lg hover:scale-105 transition-all duration-300 rounded-full border-1 border-transparent hover:bg-white hover:text-brand-black hover:border-brand-black dark:bg-brand-black dark:text-brand-violet dark:hover:bg-brand-white dark:hover:text-brand-black dark:border-brand-white dark:hover:border-brand-black"
           >
             Get in Touch
           </Link>

@@ -250,16 +250,20 @@ const Layout: React.FC = () => {
             </h4>
             <div className="flex gap-6">
               <a
-                href="#"
+                href="https://www.instagram.com/champsvisuals01/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
               >
                 Instagram
               </a>
               <a
-                href="#"
+                href="https://wa.me/Champ_Oguru?text=Hi%20champ%2C%20I%27d%20like%20to%20start%20a%20project."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
               >
-                LinkedIn
+                Whatsapp
               </a>
             </div>
             <div className="text-[10px] uppercase tracking-widest pt-6 border-t border-black/5 dark:border-white/5 text-black/40 dark:text-white/30">
