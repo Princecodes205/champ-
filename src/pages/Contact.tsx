@@ -5,7 +5,9 @@ import { Helmet } from "react-helmet-async";
 import { track } from "@vercel/analytics";
 import { analytics } from "../lib/analytics";
 
-const FORM_ENDPOINT = (import.meta.env.VITE_FORMSPREE_ENDPOINT as string) || "https://formspree.io/f/xvkgaowb";
+const FORM_ENDPOINT =
+  (import.meta.env.VITE_FORMSPREE_ENDPOINT as string) ||
+  "https://formspree.io/f/xvkgaowb";
 
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState<
@@ -53,7 +55,9 @@ const Contact: React.FC = () => {
       setFormState("success");
     } catch (error) {
       console.error("Submission Error:", error);
-      analytics.trackInquiryError(error instanceof Error ? error.message : "Unknown error");
+      analytics.trackInquiryError(
+        error instanceof Error ? error.message : "Unknown error",
+      );
       setFormState("error");
     }
   };
@@ -272,8 +276,9 @@ const Contact: React.FC = () => {
                     <input
                       name="whatsapp"
                       type="tel"
+                      pattern="[0-9+ ]*"
                       className="w-full bg-transparent border-b border-black/10 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-black dark:text-brand-white placeholder:text-black/30 dark:placeholder:text-brand-white/20"
-                      placeholder="+234 ..."
+                      placeholder="+123 ..."
                     />
                   </div>
                   <div className="space-y-2">
