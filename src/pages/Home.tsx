@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import OptimizedImage from "../components/OptimizedImage";
+import ServicesSection from "../components/ServicesSection";
+import { ProcessSection } from "../components/ProcessSection";
+import { FAQSection } from "../components/FAQSection";
+import { analytics } from "../lib/analytics";
 
 const SectionHeading = ({
   title,
@@ -130,7 +134,8 @@ const Home: React.FC = () => {
           >
             <Link
               to="/contact"
-              className="w-full sm:w-auto group relative px-10 py-5 bg-brand-violet text-brand-white font-bold uppercase tracking-widest overflow-hidden transition-all hover:text-brand-black hover:scale-105 text-center rounded-full shadow-xl shadow-brand-violet/20 text-brand-white"
+              onClick={() => analytics.trackCtaClick("hero")}
+              className="w-full sm:w-auto group relative px-10 py-5 bg-brand-violet text-brand-white font-bold uppercase tracking-widest overflow-hidden transition-all hover:text-brand-black hover:scale-105 text-center rounded-full shadow-xl shadow-brand-violet/20"
             >
               <span className="relative z-10">Start a Project</span>
               <div className="absolute inset-0 bg-brand-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
@@ -146,72 +151,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* --- CAPABILITIES HUB --- */}
-      <section className="relative py-24 md:py-40 px-6 md:px-12 bg-black/[0.02] dark:bg-brand-black transition-colors duration-500">
-        <div className="max-w-7xl mx-auto w-full">
-          <SectionHeading
-            subtitle="Capabilities"
-            title="Brand and build,   Under one roof."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            <motion.div
-              whileHover={{ y: -10 }}
-              className="group relative p-10 md:p-16 border border-black/10 dark:border-brand-white/10 bg-white dark:bg-brand-white/[0.02] transition-all duration-500 hover:border-brand-violet/30 rounded-3xl shadow-sm dark:shadow-none"
-            >
-              <div className="relative z-10">
-                <div className="w-14 h-14 bg-brand-violet rounded-2xl mb-8 flex items-center justify-center text-brand-white font-black text-xl shadow-lg shadow-brand-violet/20">
-                  CD
-                </div>
-                <h3 className="text-3xl md:text-4xl font-black tracking-tighter mb-6 text-black dark:text-brand-white">
-                  Champ Studio
-                </h3>
-                <p className="text-black/60 dark:text-brand-white/60 text-lg leading-relaxed mb-10 max-w-md">
-                  Visual identity, UX/UI and design systems at the core, with
-                  social media designs and brand materials to carry your brand
-                  across every platform.
-                </p>
-                <Link
-                  to="/about"
-                  className="inline-flex items-center gap-3 font-bold uppercase text-xs tracking-widest text-brand-violet group-hover:text-black dark:group-hover:text-brand-white transition-colors"
-                >
-                  Explore Studio{" "}
-                  <span className="group-hover:translate-x-2 transition-transform duration-300">
-                    →
-                  </span>
-                </Link>
-              </div>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ y: -10 }}
-              className="group relative p-10 md:p-16 border border-black/10 dark:border-brand-white/10 bg-white dark:bg-brand-white/[0.02] transition-all duration-500 hover:border-brand-violet/30 rounded-3xl shadow-sm dark:shadow-none"
-            >
-              <div className="relative z-10">
-                <div className="w-14 h-14 bg-brand-violet rounded-2xl mb-8 flex items-center justify-center text-brand-white font-black text-xl shadow-lg shadow-brand-violet/20">
-                  DE
-                </div>
-                <h3 className="text-3xl md:text-4xl font-black tracking-tighter mb-6 text-black dark:text-brand-white">
-                  Champ Build
-                </h3>
-                <p className="text-black/60 dark:text-brand-white/60 text-lg leading-relaxed mb-10 max-w-md">
-                  We build fast, SEO optimized web applications and the
-                  infrastructure behind them, made to handle growth without
-                  slowing down.
-                </p>
-                <Link
-                  to="/about"
-                  className="inline-flex items-center gap-3 font-bold uppercase text-xs tracking-widest text-brand-violet group-hover:text-black dark:group-hover:text-brand-white transition-colors"
-                >
-                  Explore Build{" "}
-                  <span className="group-hover:translate-x-2 transition-transform duration-300">
-                    →
-                  </span>
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <ServicesSection />
 
       {/* --- WORK TEASER --- */}
       <section className="relative py-24 md:py-40 px-6 md:px-12 bg-white dark:bg-brand-black text-black dark:text-brand-white transition-colors duration-500">
@@ -290,6 +230,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+      <ProcessSection />
 
       {/* --- VISION TEASER --- */}
       <section className="relative py-24 md:py-40 px-6 md:px-12 bg-black/[0.02] dark:bg-brand-black overflow-hidden transition-colors duration-500">
@@ -410,6 +351,7 @@ const Home: React.FC = () => {
             <div className="px-4 md:px-0">
               <Link
                 to="/contact"
+                onClick={() => analytics.trackCtaClick("vision")}
                 className="inline-block px-10 py-5 bg-brand-violet text-brand-white dark:bg-brand-black dark:text-brand-white font-bold uppercase tracking-widest text-xs md:text-sm hover:scale-105 transition-transform duration-300 shadow-xl shadow-brand-violet/20 rounded-full"
               >
                 Start your project →
@@ -418,6 +360,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+      <FAQSection />
 
       {/* --- FINAL CTA --- */}
       <section className="relative py-32 md:py-48 px-6 md:px-12 bg-white text-brand-violet dark:bg-brand-violet dark:text-brand-white overflow-hidden transition-colors duration-500">
@@ -449,6 +392,7 @@ const Home: React.FC = () => {
           >
             <Link
               to="/contact"
+              onClick={() => analytics.trackCtaClick("footer_cta")}
               className="inline-block px-12 py-6 bg-brand-violet text-brand-white dark:bg-white dark:text-brand-violet font-bold uppercase tracking-widest text-lg md:text-xl hover:scale-105 transition-transform duration-300 shadow-2xl rounded-full"
             >
               Start a Project

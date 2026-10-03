@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { track } from "@vercel/analytics";
+import { analytics } from "../lib/analytics";
 
-const FORM_ENDPOINT = "https://formspree.io/f/xvkgaowb";
+const FORM_ENDPOINT = (import.meta.env.VITE_FORMSPREE_ENDPOINT as string) || "https://formspree.io/f/xvkgaowb";
 
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
+
+  const [searchParams] = useSearchParams();
+  const selectedPackage = searchParams.get("package");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,9 +41,19 @@ const Contact: React.FC = () => {
         throw new Error(`Server responded with ${response.status}`);
       }
 
+      const projectType = formData.get("project_type") as string;
+      const budgetRange = formData.get("budget") as string;
+
+      track("Form Submission Success", {
+        project_type: projectType,
+        budget: budgetRange,
+      });
+      analytics.trackInquirySubmitted(projectType, budgetRange);
+
       setFormState("success");
     } catch (error) {
       console.error("Submission Error:", error);
+      analytics.trackInquiryError(error instanceof Error ? error.message : "Unknown error");
       setFormState("error");
     }
   };
@@ -149,7 +164,6 @@ const Contact: React.FC = () => {
                     >
                       Instagram
                     </a>
-
                     <a
                       href="https://wa.me/Champ_Oguru?text=Hi%20champ%2C%20I%27d%20like%20to%20start%20a%20project."
                       target="_blank"
@@ -253,17 +267,67 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="space-y-2">
                     <label className="text-black/40 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
+                      WhatsApp Number
+                    </label>
+                    <input
+                      name="whatsapp"
+                      type="tel"
+                      className="w-full bg-transparent border-b border-black/10 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-black dark:text-brand-white placeholder:text-black/30 dark:placeholder:text-brand-white/20"
+                      placeholder="+234 ..."
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-black/40 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
                       Project Type
                     </label>
                     <select
                       name="project_type"
+                      defaultValue={selectedPackage || "studio"}
                       className="w-full bg-white dark:bg-brand-black border-b border-black/10 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-black dark:text-brand-white"
                     >
+                      <option value="landing-page">Landing Page</option>
+                      <option value="business-website">Business Website</option>
+                      <option value="custom-build">Custom Build</option>
                       <option value="studio">Champ Studio (Design)</option>
                       <option value="build">Champ Build (Development)</option>
                       <option value="both">The Full Duo (Both)</option>
                       <option value="other">Other Inquiry</option>
                     </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-black/40 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
+                      Budget Range
+                    </label>
+                    <select
+                      name="budget"
+                      className="w-full bg-white dark:bg-brand-black border-b border-black/10 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-black dark:text-brand-white"
+                    >
+                      <option value="">Select range...</option>
+                      <option value="low">Entry Level</option>
+                      <option value="mid">Professional / Mid-range</option>
+                      <option value="high">Premium / Enterprise</option>
+                      <option value="undecided">Undecided</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-black/40 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
+                      Timeline
+                    </label>
+                    <input
+                      name="timeline"
+                      type="text"
+                      className="w-full bg-transparent border-b border-black/10 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-black dark:text-brand-white placeholder:text-black/30 dark:placeholder:text-brand-white/20"
+                      placeholder="e.g. 2 weeks, ASAP"
+                    />
+                  </div>
+                  <div className="hidden">
+                    <input
+                      type="text"
+                      name="_gotcha"
+                      className="hidden"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
                   </div>
                   <div className="space-y-2">
                     <label className="text-black/40 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">

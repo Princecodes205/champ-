@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import OptimizedImage from "./OptimizedImage";
+import { analytics } from "../lib/analytics";
 
 const Layout: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,6 +56,7 @@ const Layout: React.FC = () => {
       } else {
         document.documentElement.classList.remove("dark");
       }
+      analytics.trackThemeToggle(next);
       return next;
     });
   };
@@ -103,6 +105,7 @@ const Layout: React.FC = () => {
             ))}
             <Link
               to="/contact"
+              onClick={() => analytics.trackCtaClick("navbar")}
               className="px-5 py-2.5 bg-brand-violet text-brand-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-brand-white hover:text-brand-black dark:hover:bg-brand-black dark:hover:text-brand-white transition-all duration-300 shadow-lg shadow-brand-violet/20"
             >
               Contact
@@ -189,7 +192,10 @@ const Layout: React.FC = () => {
               >
                 <Link
                   to="/contact"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    analytics.trackCtaClick("mobile_menu");
+                  }}
                   className="text-2xl font-bold uppercase tracking-widest text-brand-white bg-brand-violet px-10 py-4 rounded-full hover:bg-brand-white hover:text-brand-black dark:hover:bg-brand-black dark:hover:text-brand-white transition-all"
                 >
                   Contact
@@ -237,6 +243,7 @@ const Layout: React.FC = () => {
               ))}
               <Link
                 to="/contact"
+                onClick={() => analytics.trackCtaClick("footer")}
                 className="text-sm transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
               >
                 Contact
@@ -261,6 +268,7 @@ const Layout: React.FC = () => {
                 href="https://wa.me/Champ_Oguru?text=Hi%20champ%2C%20I%27d%20like%20to%20start%20a%20project."
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => analytics.trackWhatsappClick("footer")}
                 className="transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
               >
                 Whatsapp
