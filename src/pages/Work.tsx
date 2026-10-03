@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet-async";
 import OptimizedImage from "../components/OptimizedImage";
 
 const ProjectCard = ({ project, index }: { project: any; index: number }) => {
-  const isFullWidth = index % 3 === 0;
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -13,31 +12,31 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
       viewport={{ once: false }}
       transition={{ delay: (index % 3) * 0.1, duration: 0.8 }}
       whileHover={{ y: -10 }}
-      className={`group relative overflow-hidden rounded-3xl cursor-pointer transition-all duration-500 hover:border-brand-violet/30 ${isFullWidth ? "md:col-span-2" : "col-span-1"}`}
+      className="group relative flex flex-col overflow-hidden rounded-3xl cursor-pointer transition-all duration-500 hover:border-brand-violet/30 break-words w-full mb-8 break-inside-avoid shadow-md hover:shadow-2xl dark:shadow-black/40"
     >
-    <OptimizedImage
-      src={project.image}
-      alt={project.title}
-      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-      aspectRatio="4/3"
-    />
-
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/40 to-transparent z-10 opacity-60 group-hover:opacity-80 transition-opacity" />
-      <div className="absolute inset-0 bg-brand-violet/10 group-hover:bg-brand-violet/20 transition-colors duration-500" />
-      <div className="absolute top-6 right-6 z-30">
-        <span className="bg-brand-violet text-brand-white text-[10px] font-bold uppercase px-3 py-1 rounded-full">
-          {project.tag || "Project"}
-        </span>
+      <div className="relative w-full overflow-hidden">
+        <OptimizedImage
+          src={project.image}
+          alt={project.title}
+          className="w-full h-auto block transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/80 to-transparent z-10 opacity-60 group-hover:opacity-50 transition-opacity" />
+        <div className="absolute inset-0 bg-brand-violet/10 group-hover:bg-brand-violet/20 transition-colors duration-500" />
+        <div className="absolute top-4 right-4 z-30 sm:top-6 sm:right-6">
+          <span className="bg-brand-violet text-brand-white text-[10px] font-bold uppercase px-3 py-1 rounded-full">
+            {project.tag || "Project"}
+          </span>
+        </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 p-8 md:p-16 z-20 w-full">
-        <span className="text-brand-violet font-bold text-xs uppercase tracking-widest mb-3 block">
+      <div className="p-4 sm:p-6 md:p-8 lg:p-12 z-20 w-full flex flex-col flex-grow">
+        <span className="text-brand-violet font-bold text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-3 block">
           {project.category}
         </span>
-        <h3 className="text-3xl md:text-5xl font-black text-brand-black dark:text-brand-white tracking-tighter mb-6">
+        <h3 className="text-2xl sm:text-3xl md:text-5xl font-black text-black dark:text-brand-white tracking-tighter mb-4 sm:mb-6 break-words">
           {project.title}
         </h3>
-        <div className="flex items-center gap-2 text-brand-black/50 dark:text-brand-white/50 font-medium text-xs md:text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 duration-300">
+        <div className="flex items-center gap-2 text-black/50 dark:text-brand-black/50 font-medium text-[10px] sm:text-xs md:text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 duration-300 mt-auto">
           Coming soon <span className="text-brand-violet">→</span>
         </div>
       </div>
@@ -48,23 +47,33 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
 const Work: React.FC = () => {
   const projects = [
     {
-      title: "Digital Product Design",
-      category: "Visual Identity / UX",
+      title: "AwkGroup Website Redesign",
+      category: "Web Design / Dev",
       id: 1,
-      image: "/project1.jpg",
-      tag: "UX/UI",
+      image: "/awk-group-cover-16x10.png",
+      tag: "WEB DESIGN",
     },
     {
       title: "Technical Implementation",
       category: "Product Design / Dev",
       id: 2,
-      image: "/project2.jpg",
+      image: "/coming-soon-poster-4x5.png",
       tag: "Development",
     },
-    { title: "Custom Web Platform", category: "Web Development", id: 3, image: "/project3.jpg", tag: "Web" },
-    { title: "Strategic User Experience", category: "UX Strategy / UI", id: 4, image: "/project4.jpg", tag: "Strategy" },
-    { title: "Enterprise Interface", category: "Product Design", id: 5, image: "/project5.jpg", tag: "Enterprise" },
-    { title: "Custom Build", category: "Product Development", id: 6, image: "/project6.jpg", tag: "Custom" },
+    {
+      title: "Custom Web Platform",
+      category: "Web Development",
+      id: 3,
+      image: "/coming-soon-poster-4x5.png",
+      tag: "Web",
+    },
+    {
+      title: "Strategic User Experience",
+      category: "UX Strategy / UI",
+      id: 4,
+      image: "/coming-soon-poster-16x10.png",
+      tag: "Strategy",
+    },
   ];
 
   return (
@@ -132,7 +141,7 @@ const Work: React.FC = () => {
       {/* --- PROJECTS GRID --- */}
       <section className="px-6 py-12 md:px-12 md:py-24">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
             {projects.map((project, i) => (
               <ProjectCard key={project.id} project={project} index={i} />
             ))}
@@ -235,7 +244,10 @@ const Work: React.FC = () => {
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="grid grid-cols-12 h-full w-full">
             {[...Array(144)].map((_, i) => (
-              <div key={i} className="border border-brand-black dark:border-brand-white" />
+              <div
+                key={i}
+                className="border border-brand-black dark:border-brand-white"
+              />
             ))}
           </div>
         </div>

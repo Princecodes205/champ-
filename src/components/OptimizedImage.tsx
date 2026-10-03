@@ -46,9 +46,6 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   return (
     <div
       className={`relative overflow-hidden ${className}`}
-      style={{
-        aspectRatio: aspectRatio || (width && height ? `${width}/${height}` : "auto"),
-      }}
     >
       {/* Neutral theme-aware placeholder - only show if we have a specific aspectRatio or dimensions, otherwise it's likely a logo/icon and shouldn't have a background box */}
       {!isLoaded && !hasError && (aspectRatio || width || height) && (
@@ -64,14 +61,14 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         <img
           src={src}
           alt={alt}
-          width={width}
-          height={height}
+          width={typeof width === 'number' ? width : undefined}
+          height={typeof height === 'number' ? height : undefined}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
           {...({ fetchPriority: priority ? "high" : "auto" } as any)}
           onLoad={handleLoad}
           onError={handleError}
-          className={`w-full h-full object-cover transition-opacity duration-500 ${
+          className={`w-full h-auto block transition-opacity duration-500 ${
             isLoaded ? "opacity-100" : "opacity-0"
           } ${className}`}
         />
