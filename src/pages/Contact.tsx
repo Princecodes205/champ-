@@ -279,6 +279,7 @@ const Contact: React.FC = () => {
                       pattern="[0-9+ ]*"
                       className="w-full bg-transparent border-b border-black/10 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-black dark:text-brand-white placeholder:text-black/30 dark:placeholder:text-brand-white/20"
                       placeholder="+123 ..."
+                      required
                     />
                   </div>
                   <div className="space-y-2">
@@ -289,6 +290,7 @@ const Contact: React.FC = () => {
                       name="project_type"
                       defaultValue={selectedPackage || "studio"}
                       className="w-full bg-white dark:bg-brand-black border-b border-black/10 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-black dark:text-brand-white"
+                      required
                     >
                       <option value="landing-page">Landing Page</option>
                       <option value="business-website">Business Website</option>
