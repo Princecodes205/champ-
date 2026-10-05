@@ -1,4 +1,4 @@
-// import React from 'react';
+import CaseStudyOverlay from './components/CaseStudyOverlay';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/Layout';
@@ -15,7 +15,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="work" element={<Work />} />
+        <Route path="work" element={<Work />}>
+          <Route path=":slug" element={<CaseStudyOverlay />} />
+        </Route>
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

@@ -1,58 +1,73 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import OptimizedImage from "../components/OptimizedImage";
+import { caseStudies } from "../data/caseStudies";
 
 const ProjectCard = ({ project, index }: { project: any; index: number }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
-      transition={{ delay: (index % 3) * 0.1, duration: 0.8 }}
-      whileHover={{ y: -10 }}
-      className="group relative flex flex-col overflow-hidden rounded-3xl cursor-pointer transition-all duration-500 hover:border-brand-violet/30 break-words w-full mb-8 break-inside-avoid shadow-md hover:shadow-2xl dark:shadow-black/40"
-    >
-      <div className="relative w-full overflow-hidden">
-        <OptimizedImage
-          src={project.image}
-          alt={project.title}
-          className="w-full h-auto block transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/80 to-transparent z-10 opacity-60 group-hover:opacity-50 transition-opacity" />
-        <div className="absolute inset-0 bg-brand-violet/10 group-hover:bg-brand-violet/20 transition-colors duration-500" />
-        <div className="absolute top-4 right-4 z-30 sm:top-6 sm:right-6">
-          <span className="bg-brand-violet text-brand-white text-[10px] font-bold uppercase px-3 py-1 rounded-full">
-            {project.tag || "Project"}
-          </span>
-        </div>
-      </div>
+  const isLive = !!project.slug;
 
-      <div className="p-4 sm:p-6 md:p-8 lg:p-12 z-20 w-full flex flex-col flex-grow">
-        <span className="text-brand-violet font-bold text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-3 block">
-          {project.category}
-        </span>
-        <h3 className="text-2xl sm:text-3xl md:text-5xl font-black text-black dark:text-brand-white tracking-tighter mb-4 sm:mb-6 break-words">
-          {project.title}
-        </h3>
-        <div className="flex items-center gap-2 text-black/50 dark:text-brand-black/50 font-medium text-[10px] sm:text-xs md:text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 duration-300 mt-auto">
-          Coming soon <span className="text-brand-violet">→</span>
+  return (
+    <Link
+      to={isLive ? `/work/${project.slug}` : "#"}
+      className="block no-underline"
+      onClick={(e) => !isLive && e.preventDefault()}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ delay: (index % 3) * 0.1, duration: 0.8 }}
+        whileHover={{ y: -5 }}
+        className="group relative flex flex-col overflow-hidden rounded-sm cursor-pointer transition-all duration-500 border border-black/10 dark:border-brand-white/10 hover:border-brand-violet transition-colors break-words w-full mb-8 break-inside-avoid bg-white dark:bg-brand-black"
+      >
+        <div className="relative w-full overflow-hidden">
+          <motion.div layoutId={isLive ? `img-${project.slug}` : undefined}>
+            <OptimizedImage
+              src={project.cover || project.image}
+              alt={project.title}
+              className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
+            />
+          </motion.div>
+          <div className="absolute inset-0 bg-brand-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+          <div className="absolute top-4 right-4 z-30 sm:top-6 sm:right-6">
+            <span className="bg-brand-violet text-brand-white text-[10px] font-bold uppercase px-2 py-1 rounded-sm">
+              {project.tag || "Project"}
+            </span>
+          </div>
         </div>
-      </div>
-    </motion.div>
+
+        <div className="p-4 sm:p-6 md:p-8 lg:p-12 z-20 w-full flex flex-col flex-grow">
+          <span className="text-brand-violet font-bold text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-3 block">
+            {project.category}
+          </span>
+          <motion.h3
+            layoutId={isLive ? `title-${project.slug}` : undefined}
+            className="text-2xl sm:text-3xl md:text-4xl font-black text-black dark:text-brand-white tracking-tighter mb-4 sm:mb-6 break-words"
+          >
+            {project.title}
+          </motion.h3>
+          <div className="flex items-center gap-2 text-black/60 dark:text-brand-white/60 font-medium text-[10px] sm:text-xs md:text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 duration-300 mt-auto">
+            {isLive ? "View Case Study" : "Coming soon"}{" "}
+            <span className="text-brand-violet">→/</span>
+          </div>
+        </div>
+      </motion.div>
+    </Link>
   );
 };
 
 const Work: React.FC = () => {
   const projects = [
-    {
-      title: "AwkGroup Website Redesign",
-      category: "Web Design / Dev",
-      id: 1,
-      image: "/awk-group-cover-16x10.png",
-      tag: "WEB DESIGN",
-    },
+    ...caseStudies.map((cs: any) => ({
+      title: cs.title,
+      category: cs.tags[0] + (cs.tags[1] ? ` / ${cs.tags[1]}` : ""),
+      id: cs.slug,
+      image: cs.cover,
+      tag: cs.tags[0],
+      slug: cs.slug,
+    })),
     {
       title: "Technical Implementation",
       category: "Product Design / Dev",
@@ -114,7 +129,7 @@ const Work: React.FC = () => {
         />
       </Helmet>
       {/* --- HEADER --- */}
-      <section className="relative pt-32 pb-16 px-6 md:px-12 md:pt-48 md:pb-24 overflow-hidden">
+      <section className="relative pt-32 pb-16 px-6 md:px-12 md:pt-48 md:pb-24 overflow-hidden border-b border-black/10 dark:border-brand-white/10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -124,9 +139,9 @@ const Work: React.FC = () => {
             <span className="text-brand-violet font-bold text-xs md:text-sm uppercase tracking-[0.2em] block mb-4">
               Portfolio
             </span>
-            <h1 className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter leading-[0.9]">
+            <h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter leading-[0.9]">
               Selected <br />{" "}
-              <span className="text-brand-violet italic">Works.</span>
+              <span className="text-brand-violet">Works.</span>
             </h1>
           </motion.div>
           <div className="hidden lg:block relative h-[400px] opacity-20">
@@ -141,13 +156,14 @@ const Work: React.FC = () => {
       {/* --- PROJECTS GRID --- */}
       <section className="px-6 py-12 md:px-12 md:py-24">
         <div className="max-w-7xl mx-auto">
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, i) => (
               <ProjectCard key={project.id} project={project} index={i} />
             ))}
           </div>
         </div>
       </section>
+      <Outlet />
 
       {/* --- METHODOLOGY SECTION --- */}
       <section className="py-24 md:py-40 px-6 md:px-12 bg-black/[0.02] dark:bg-brand-black text-black dark:text-brand-white overflow-hidden transition-colors duration-500">
@@ -185,7 +201,7 @@ const Work: React.FC = () => {
       </section>
 
       {/* --- PROCESS SECTION --- */}
-      <section className="py-24 md:py-40 px-6 md:px-12 overflow-hidden transition-colors duration-500">
+      <section className="py-24 md:py-40 px-6 md:px-12 overflow-hidden transition-colors duration-500 border-t border-black/10 dark:border-brand-white/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <span className="text-brand-violet font-bold text-xs md:text-sm uppercase tracking-[0.2em] block mb-4">
@@ -194,6 +210,7 @@ const Work: React.FC = () => {
             <h2 className="text-5xl md:text-7xl font-black tracking-tighter">
               Steps of Operation.
             </h2>
+            <Outlet />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
@@ -222,7 +239,7 @@ const Work: React.FC = () => {
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="group relative p-8 border border-black/10 dark:border-brand-white/10 bg-white dark:bg-brand-white/[0.02] rounded-3xl hover:border-brand-violet/30 transition-all duration-500"
+                className="group relative p-8 border border-black/10 dark:border-brand-white/10 bg-white dark:bg-brand-black rounded-sm hover:border-brand-violet transition-all duration-500"
               >
                 <div className="text-brand-violet font-black text-5xl md:text-6xl mb-6 opacity-20 group-hover:opacity-100 transition-opacity">
                   {item.step}
@@ -259,7 +276,7 @@ const Work: React.FC = () => {
             className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter mb-12 leading-none"
           >
             Have a vision? <br />
-            <span className="italic">Let's make it tangible.</span>
+            <span className="text-brand-black dark:text-white">Let's make it tangible.</span>
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -269,7 +286,7 @@ const Work: React.FC = () => {
           >
             <Link
               to="/contact"
-              className="inline-block px-12 py-6 bg-brand-violet text-brand-white dark:bg-brand-black dark:text-brand-white font-bold uppercase tracking-widest text-lg md:text-xl hover:scale-105 transition-transform duration-300 shadow-2xl rounded-full"
+              className="inline-block px-12 py-6 bg-brand-violet text-brand-white dark:bg-brand-black dark:text-brand-white font-bold uppercase tracking-widest text-lg md:text-xl hover:scale-105 transition-transform duration-300 shadow-2xl rounded-sm"
             >
               Start a Project
             </Link>

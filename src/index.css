@@ -23,6 +23,9 @@
   .grid-border {
     @apply border border-brand-violet/20;
   }
+  .hairline-border {
+    @apply border-[1px] border-black/10 dark:border-brand-white/10;
+  }
 }
 
 /* Force colors for those using old Tailwind versions or custom configs */
