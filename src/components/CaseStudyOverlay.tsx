@@ -42,9 +42,15 @@ const CaseStudyOverlay: React.FC = () => {
 
   useEffect(() => {
     // Transition from EXPANDING -> INTRO -> CONTENT
-    const expansionTimer = setTimeout(() => setPhase("INTRO"), 400);
+    const isDirectLink = window.performance.navigation.type === 1 ||
+                       (window.performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming)?.type === 'reload';
 
-    return () => clearTimeout(expansionTimer);
+    if (isDirectLink) {
+      setPhase("CONTENT");
+    } else {
+      const expansionTimer = setTimeout(() => setPhase("INTRO"), 400);
+      return () => clearTimeout(expansionTimer);
+    }
   }, [slug]);
 
   useEffect(() => {

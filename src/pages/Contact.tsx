@@ -186,7 +186,7 @@ const Contact: React.FC = () => {
                   </span>
                   <div className="flex gap-8 mt-6">
                     <a
-                      href="https://www.instagram.com/champsvisuals01/"
+                      href="https://www.instagram.com/hellochamp7/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-black/60 dark:text-brand-white/50 hover:text-brand-violet transition-colors uppercase text-xs font-bold tracking-widest"

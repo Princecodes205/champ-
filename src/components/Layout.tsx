@@ -275,7 +275,7 @@ const Layout: React.FC = () => {
             </h4>
             <div className="flex gap-6">
               <a
-                href="https://www.instagram.com/champsvisuals01/"
+                href="https://www.instagram.com/hellochamp7/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
