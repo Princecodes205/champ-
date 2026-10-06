@@ -47,7 +47,7 @@ const ServicesSection: React.FC = () => {
                     {pkg.timeline}
                   </span>
                 </div>
-                <p className="text-black/60 dark:text-brand-white/60 text-base leading-relaxed mb-10">
+                <p className="text-black/70 dark:text-brand-white/70 text-base leading-relaxed mb-10">
                   {pkg.description}
                 </p>
                 <div className="space-y-4 mb-12">
@@ -80,6 +80,7 @@ const ServicesSection: React.FC = () => {
                   to={`/contact?package=${pkg.id}`}
                   onClick={() => analytics.trackOfferingClick(pkg.name)}
                   className="block text-center w-full py-4 bg-brand-violet text-brand-white font-bold uppercase tracking-widest text-xs hover:scale-[1.02] transition-transform rounded-full shadow-lg shadow-brand-violet/20"
+                  aria-label={`Start project with ${pkg.name}`}
                 >
                   Start Project
                 </Link>

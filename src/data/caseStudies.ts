@@ -1,4 +1,32 @@
-export const caseStudies = [
+export interface GalleryItem {
+  src: string;
+  alt: string;
+  caption?: string;
+  span?: "full" | "half";
+}
+
+export interface Gallery {
+  layout?: "grid" | "stacked";
+  title?: string;
+  items: GalleryItem[];
+}
+
+export interface CaseStudy {
+  slug: string;
+  title: string;
+  summary: string;
+  tags: string[];
+  stack: string[];
+  liveUrl: string;
+  overview: string;
+  problem: string;
+  built: string[];
+  testimonial?: string | null;
+  cover: string;
+  gallery?: Gallery;
+}
+
+export const caseStudies: CaseStudy[] = [
   {
     slug: "awk-group",
     title: "Awk Group",
@@ -14,9 +42,17 @@ export const caseStudies = [
       "A Sanity CMS integration so the Awk team can edit content themselves",
       "Deployment on Vercel with a custom .com.ng domain"
     ],
-    screenshots: [], // Placeholder
-    results: [], // Placeholder
-    testimonial: null, // Placeholder
+    testimonial: null,
     cover: "/awk-group-cover-16x10.png",
+    // Example gallery entry for other projects:
+    // gallery: {
+    //   layout: "grid",
+    //   title: "Visual Delivery",
+    //   items: [
+    //     { src: "/img1.jpg", alt: "Description", span: "full", caption: "Full width image" },
+    //     { src: "/img2.jpg", alt: "Description", span: "half", caption: "Half width image" },
+    //     { src: "/img3.jpg", alt: "Description", span: "half", caption: "Half width image" },
+    //   ]
+    // }
   },
 ];

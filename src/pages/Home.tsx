@@ -45,38 +45,38 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-col bg-white text-black dark:bg-brand-black dark:text-brand-white selection:bg-brand-violet selection:text-brand-black overflow-x-hidden transition-colors duration-500">
       <Helmet>
-        <title>champ — Creative solutions for real problems</title>
+        <title>Creative Design & Web Development Studio | Champ</title>
         <meta
           name="description"
-          content="champ is a design-led studio building digital products at the intersection of strategy, design, and clean code."
+          content="Champ is a design-led studio building high-performance digital products. We specialize in strategic branding and SEO-optimized web development for growth-focused businesses."
         />
-        <link rel="canonical" href="https://champ-jet.vercel.app/" />
+        <link rel="canonical" href="https://hellochamp.vercel.app/" />
         <meta
           property="og:title"
-          content="champ — Creative solutions for real problems"
+          content="Creative Design & Web Development Studio | Champ"
         />
         <meta
           property="og:description"
-          content="champ is a design-led studio building digital products at the intersection of strategy, design, and clean code."
+          content="Champ is a design-led studio building high-performance digital products. We specialize in strategic branding and SEO-optimized web development for growth-focused businesses."
         />
-        <meta property="og:url" content="https://champ-jet.vercel.app/" />
+        <meta property="og:url" content="https://hellochamp.vercel.app/" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://champ-jet.vercel.app/og-image.png"
+          content="https://hellochamp.vercel.app/og-image.png"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="champ — Creative solutions for real problems"
+          content="Creative Design & Web Development Studio | Champ"
         />
         <meta
           name="twitter:description"
-          content="champ is a design-led studio building digital products at the intersection of strategy, design, and clean code."
+          content="Champ is a design-led studio building high-performance digital products. We specialize in strategic branding and SEO-optimized web development for growth-focused businesses."
         />
         <meta
           name="twitter:image"
-          content="https://champ-jet.vercel.app/og-image.png"
+          content="https://hellochamp.vercel.app/og-image.png"
         />
       </Helmet>
 
@@ -103,7 +103,9 @@ const Home: React.FC = () => {
             className="text-6xl sm:text-8xl md:text-[11rem] font-black tracking-tighter leading-[0.9] mb-8 md:mb-12 text-black dark:text-brand-white"
           >
             <span className="block">Creative</span>
-            <span className="block text-brand-violet italic">solutions</span>
+            <span className="block text-brand-violet italic">
+              Design Studio
+            </span>
             <span className="block">for real problems.</span>
           </motion.h1>
 
@@ -111,7 +113,7 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-2xl text-black/60 dark:text-brand-white/60 max-w-3xl mx-auto mb-12 md:mb-20 leading-relaxed font-light px-4"
+            className="text-lg md:text-2xl text-black/70 dark:text-brand-white/70 max-w-3xl mx-auto mb-12 md:mb-20 leading-relaxed font-light px-4"
           >
             We help{" "}
             <span className="text-black dark:text-brand-white font-medium">
@@ -169,7 +171,7 @@ const Home: React.FC = () => {
             >
               <OptimizedImage
                 src="/awk-group-cover-16x10.png"
-                alt="AwkGroup Website Redesign"
+                alt="AwkGroup corporate website redesign showcasing strategic brand identity and clean code execution"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 aspectRatio="16/10"
               />
@@ -182,7 +184,7 @@ const Home: React.FC = () => {
                 <h4 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-4">
                   AwkGroup Website Redesign
                 </h4>
-                <p className="text-white/60 text-base md:text-lg mb-8 max-w-md hidden sm:block">
+                <p className="text-white/70 text-base md:text-lg mb-8 max-w-md hidden sm:block">
                   A representative project showcasing the approach to digital
                   excellence.
                 </p>
@@ -199,7 +201,7 @@ const Home: React.FC = () => {
             >
               <OptimizedImage
                 src="/coming-soon-poster-square.png"
-                alt="Design & Dev Placeholder"
+                alt="Upcoming design and development project for a growth-focused business"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 aspectRatio="1/1"
               />
@@ -287,7 +289,7 @@ const Home: React.FC = () => {
                         <span className="font-bold text-black dark:text-brand-white text-sm md:text-base mb-1">
                           {item.head}
                         </span>
-                        <span className="text-black/60 dark:text-brand-white/60 text-xs md:text-sm leading-relaxed">
+                        <span className="text-black/70 dark:text-brand-white/70 text-xs md:text-sm leading-relaxed">
                           {item.text}
                         </span>
                       </div>
@@ -304,7 +306,7 @@ const Home: React.FC = () => {
               title="Your website is your first impression. We design it to win clients."
               center={false}
             />
-            <p className="text-lg md:text-xl text-black/60 dark:text-brand-white/60 leading-relaxed mb-10 md:mb-16 px-4 md:px-0">
+            <p className="text-lg md:text-xl text-black/70 dark:text-brand-white/70 leading-relaxed mb-10 md:mb-16 px-4 md:px-0">
               People judge your business in seconds. If your site is slow,
               outdated, or confusing, you're leaving money on the table. Champ
               combines high-end design with technical precision to ensure your
@@ -341,7 +343,7 @@ const Home: React.FC = () => {
                     <span className="font-bold text-black dark:text-brand-white text-sm md:text-base mr-2">
                       {item.label}.
                     </span>
-                    <span className="text-black/60 dark:text-brand-white/60 text-sm md:text-base">
+                    <span className="text-black/70 dark:text-brand-white/70 text-sm md:text-base">
                       {item.text}
                     </span>
                   </div>
@@ -386,13 +388,11 @@ const Home: React.FC = () => {
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
             <Link
               to="/contact"
-              onClick={() => analytics.trackCtaClick("footer_cta")}
               className="inline-block px-12 py-6 bg-brand-violet text-brand-white dark:bg-white dark:text-brand-violet font-bold uppercase tracking-widest text-lg md:text-xl hover:scale-105 transition-transform duration-300 shadow-2xl rounded-full"
             >
               Start a Project

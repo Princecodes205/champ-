@@ -20,7 +20,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
         viewport={{ once: false }}
         transition={{ delay: (index % 3) * 0.1, duration: 0.8 }}
         whileHover={{ y: -5 }}
-        className="group relative flex flex-col overflow-hidden rounded-sm cursor-pointer transition-all duration-500 border border-black/10 dark:border-brand-white/10 hover:border-brand-violet transition-colors break-words w-full mb-8 break-inside-avoid bg-white dark:bg-brand-black"
+        className="group relative flex flex-col overflow-hidden rounded-xl cursor-pointer transition-all duration-500 border border-black/10 dark:border-brand-white/10 hover:border-brand-violet transition-colors break-words w-full mb-8 break-inside-avoid bg-white dark:bg-brand-black"
       >
         <div className="relative w-full overflow-hidden">
           <motion.div layoutId={isLive ? `img-${project.slug}` : undefined}>
@@ -48,7 +48,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
           >
             {project.title}
           </motion.h3>
-          <div className="flex items-center gap-2 text-black/60 dark:text-brand-white/60 font-medium text-[10px] sm:text-xs md:text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 duration-300 mt-auto">
+          <div className="flex items-center gap-2 text-black/70 dark:text-brand-white/70 font-medium text-[10px] sm:text-xs md:text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 duration-300 mt-auto">
             {isLive ? "View Case Study" : "Coming soon"}{" "}
             <span className="text-brand-violet">→/</span>
           </div>
@@ -94,38 +94,38 @@ const Work: React.FC = () => {
   return (
     <div className="flex flex-col bg-white text-black dark:bg-brand-black dark:text-brand-white min-h-screen selection:bg-brand-violet selection:text-brand-black transition-colors duration-500">
       <Helmet>
-        <title>Work — Selected Projects & Methodology</title>
+        <title>Portfolio | Design & Web Development Case Studies — Champ</title>
         <meta
           name="description"
-          content="Explore the intersection of high-fidelity design and clean development through champ's selected case studies and process."
+          content="Explore Champ's portfolio of high-fidelity design and clean development. See how we build conversion-focused websites and digital products for our clients."
         />
-        <link rel="canonical" href="https://champ-jet.vercel.app/work" />
+        <link rel="canonical" href="https://hellochamp.vercel.app/work" />
         <meta
           property="og:title"
-          content="Work — Selected Projects & Methodology"
+          content="Portfolio | Design & Web Development Case Studies — Champ"
         />
         <meta
           property="og:description"
-          content="Explore the intersection of high-fidelity design and clean development through champ's selected case studies and process."
+          content="Explore Champ's portfolio of high-fidelity design and clean development. See how we build conversion-focused websites and digital products for our clients."
         />
-        <meta property="og:url" content="https://champ-jet.vercel.app/work" />
+        <meta property="og:url" content="https://hellochamp.vercel.app/work" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://champ-jet.vercel.app/og-image.png"
+          content="https://hellochamp.vercel.app/og-image.png"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Work — Selected Projects & Methodology"
+          content="Portfolio | Design & Web Development Case Studies — Champ"
         />
         <meta
           name="twitter:description"
-          content="Explore the intersection of high-fidelity design and clean development through champ's selected case studies and process."
+          content="Explore Champ's portfolio of high-fidelity design and clean development. See how we build conversion-focused websites and digital products for our clients."
         />
         <meta
           name="twitter:image"
-          content="https://champ-jet.vercel.app/og-image.png"
+          content="https://hellochamp.vercel.app/og-image.png"
         />
       </Helmet>
       {/* --- HEADER --- */}
@@ -140,8 +140,7 @@ const Work: React.FC = () => {
               Portfolio
             </span>
             <h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter leading-[0.9]">
-              Selected <br />{" "}
-              <span className="text-brand-violet">Works.</span>
+              Selected <br /> <span className="text-brand-violet">Works.</span>
             </h1>
           </motion.div>
           <div className="hidden lg:block relative h-[400px] opacity-20">
@@ -160,6 +159,11 @@ const Work: React.FC = () => {
             {projects.map((project, i) => (
               <ProjectCard key={project.id} project={project} index={i} />
             ))}
+          </div>
+          <div className="mt-12 text-center">
+            <p className="text-black/60 dark:text-brand-white/60 text-sm md:text-base max-w-2xl mx-auto mb-8">
+              Looking for a partner to scale your digital presence? We combine strategic design with high-performance development to build assets that drive growth.
+            </p>
           </div>
         </div>
       </section>
@@ -247,7 +251,7 @@ const Work: React.FC = () => {
                 <h3 className="text-xl md:text-2xl font-black tracking-tighter mb-4">
                   {item.title}
                 </h3>
-                <p className="text-black/60 dark:text-brand-white/60 text-sm md:text-base leading-relaxed">
+                <p className="text-black/70 dark:text-brand-white/70 text-sm md:text-base leading-relaxed">
                   {item.desc}
                 </p>
               </motion.div>
@@ -276,7 +280,9 @@ const Work: React.FC = () => {
             className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter mb-12 leading-none"
           >
             Have a vision? <br />
-            <span className="text-brand-black dark:text-white">Let's make it tangible.</span>
+            <span className="text-brand-black dark:text-white">
+              Let's make it tangible.
+            </span>
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

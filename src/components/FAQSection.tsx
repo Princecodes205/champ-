@@ -45,18 +45,21 @@ const FAQItem: React.FC<{ item: FAQItem }> = ({ item }) => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-6 flex justify-between items-center text-left group"
+        aria-expanded={isOpen}
       >
         <span className={`text-lg md:text-xl font-bold tracking-tighter transition-colors ${isOpen ? "text-brand-violet" : "text-black dark:text-brand-white"}`}>
           {item.question}
         </span>
-        <span className={`text-2xl transition-transform duration-300 ${isOpen ? "rotate-180" : ""} text-brand-violet`}>
+        <span className={`text-2xl transition-transform duration-300 ${isOpen ? "rotate-180" : ""} text-brand-violet`} aria-hidden="true">
           ↓
         </span>
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96 opacity-100 mb-6" : "max-h-0 opacity-0"}`}
+        role="region"
+        aria-label={item.question}
       >
-        <p className="text-black/60 dark:text-brand-white/60 leading-relaxed text-sm md:text-base">
+        <p className="text-black/70 dark:text-brand-white/70 leading-relaxed text-sm md:text-base">
           {item.answer}
         </p>
       </div>

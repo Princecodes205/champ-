@@ -78,7 +78,7 @@ export const ProcessSection: React.FC = () => {
               <h3 className="text-xl md:text-2xl font-black tracking-tighter mb-4">
                 {item.title}
               </h3>
-              <p className="text-black/60 dark:text-brand-white/60 text-sm md:text-base leading-relaxed">
+              <p className="text-black/70 dark:text-brand-white/70 text-sm md:text-base leading-relaxed">
                 {item.desc}
               </p>
             </motion.div>

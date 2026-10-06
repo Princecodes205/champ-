@@ -13,12 +13,37 @@ const Contact: React.FC = () => {
   const [formState, setFormState] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
+  const [consent, setConsent] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const [searchParams] = useSearchParams();
   const selectedPackage = searchParams.get("package");
 
+  const validateForm = (formData: FormData) => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.get("name")) newErrors.name = "Full name is required";
+    if (!formData.get("email")) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.get("email") as string)) {
+      newErrors.email = "Please enter a valid email";
+    }
+    if (!formData.get("message")) newErrors.message = "Message is required";
+    if (!consent) newErrors.consent = "Please tick the box to continue";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+
+    if (!validateForm(formData)) {
+      const firstError = Object.keys(errors)[0] || "consent";
+      const element = document.getElementsByName(firstError)[0];
+      if (element) element.focus();
+      return;
+    }
 
     if (!FORM_ENDPOINT) {
       console.error("Form endpoint is missing. Please check your .env file.");
@@ -27,8 +52,6 @@ const Contact: React.FC = () => {
     }
 
     setFormState("submitting");
-
-    const formData = new FormData(e.currentTarget);
 
     try {
       const response = await fetch(FORM_ENDPOINT, {
@@ -65,35 +88,38 @@ const Contact: React.FC = () => {
   return (
     <div className="flex flex-col bg-white text-black dark:bg-brand-black dark:text-brand-white min-h-screen overflow-x-hidden transition-colors duration-500 selection:bg-brand-violet selection:text-brand-black">
       <Helmet>
-        <title>Contact — Let's Build Something</title>
+        <title>Contact Champ | Start Your Design & Development Project</title>
         <meta
           name="description"
-          content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build."
+          content="Ready to scale your business? Contact Champ today for strategic design and technical builds that win more customers."
         />
-        <link rel="canonical" href="https://champ-jet.vercel.app/contact" />
-        <meta property="og:title" content="Contact — Let's Build Something" />
+        <link rel="canonical" href="https://hellochamp.vercel.app/contact" />
+        <meta property="og:title" content="Contact Champ | Start Your Design & Development Project" />
         <meta
           property="og:description"
-          content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build."
+          content="Ready to scale your business? Contact Champ today for strategic design and technical builds that win more customers."
         />
         <meta
           property="og:url"
-          content="https://champ-jet.vercel.app/contact"
+          content="https://hellochamp.vercel.app/contact"
         />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://champ-jet.vercel.app/og-image.png"
+          content="https://hellochamp.vercel.app/og-image.png"
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contact — Let's Build Something" />
+        <meta
+          name="twitter:title"
+          content="Contact Champ | Start Your Design & Development Project"
+        />
         <meta
           name="twitter:description"
-          content="Get in touch with champ to turn your digital vision into reality. Now accepting new projects for strategic design and technical build."
+          content="Ready to scale your business? Contact Champ today for strategic design and technical builds that win more customers."
         />
         <meta
           name="twitter:image"
-          content="https://champ-jet.vercel.app/og-image.png"
+          content="https://hellochamp.vercel.app/og-image.png"
         />
       </Helmet>
       {/* --- HERO SECTION --- */}
@@ -111,7 +137,7 @@ const Contact: React.FC = () => {
               Let's Start <br />{" "}
               <span className="text-brand-violet italic">Something.</span>
             </h1>
-            <p className="text-lg md:text-2xl text-black/60 dark:text-brand-white/60 max-w-3xl leading-relaxed font-light">
+            <p className="text-lg md:text-2xl text-black/70 dark:text-brand-white/70 max-w-3xl leading-relaxed font-light">
               Tell us about your business and what you want to achieve. We'll
               reply with a clear plan for a brand and website that brings you
               clients.
@@ -119,7 +145,6 @@ const Contact: React.FC = () => {
           </motion.div>
         </div>
       </section>
-
       {/* --- CONTACT GRID --- */}
       <section className="py-24 md:py-40 px-6 md:px-12 bg-black/[0.02] dark:bg-brand-black transition-colors duration-500">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-24">
@@ -180,7 +205,6 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -194,7 +218,6 @@ const Contact: React.FC = () => {
               </p>
             </motion.div>
           </div>
-
           {/* --- FORM SIDE --- */}
           <div className="relative lg:col-span-1">
             <motion.div
@@ -244,7 +267,7 @@ const Contact: React.FC = () => {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
+                    <div className="space-y-1">
                       <label className="text-black/40 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
                         Full Name
                       </label>
@@ -252,11 +275,25 @@ const Contact: React.FC = () => {
                         required
                         name="name"
                         type="text"
+                        aria-required="true"
+                        aria-invalid={!!errors.name}
+                        aria-describedby={
+                          errors.name ? "name-error" : undefined
+                        }
                         className="w-full bg-transparent border-b border-black/10 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-black dark:text-brand-white placeholder:text-black/30 dark:placeholder:text-brand-white/20"
                         placeholder="John Doe"
                       />
+                      {errors.name && (
+                        <p
+                          id="name-error"
+                          className="text-red-500 text-[10px] mt-1"
+                          aria-live="polite"
+                        >
+                          {errors.name}
+                        </p>
+                      )}
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-1">
                       <label className="text-black/40 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
                         Email Address
                       </label>
@@ -264,25 +301,26 @@ const Contact: React.FC = () => {
                         required
                         name="email"
                         type="email"
+                        aria-required="true"
+                        aria-invalid={!!errors.email}
+                        aria-describedby={
+                          errors.email ? "email-error" : undefined
+                        }
                         className="w-full bg-transparent border-b border-black/10 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-black dark:text-brand-white placeholder:text-black/30 dark:placeholder:text-brand-white/20"
                         placeholder="john@example.com"
                       />
+                      {errors.email && (
+                        <p
+                          id="email-error"
+                          className="text-red-500 text-[10px] mt-1"
+                          aria-live="polite"
+                        >
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-black/40 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
-                      WhatsApp Number
-                    </label>
-                    <input
-                      name="whatsapp"
-                      type="tel"
-                      pattern="[0-9+ ]*"
-                      className="w-full bg-transparent border-b border-black/10 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-black dark:text-brand-white placeholder:text-black/30 dark:placeholder:text-brand-white/20"
-                      placeholder="+123 ..."
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1">
                     <label className="text-black/40 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
                       Project Type
                     </label>
@@ -290,7 +328,6 @@ const Contact: React.FC = () => {
                       name="project_type"
                       defaultValue={selectedPackage || "studio"}
                       className="w-full bg-white dark:bg-brand-black border-b border-black/10 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-black dark:text-brand-white"
-                      required
                     >
                       <option value="landing-page">Landing Page</option>
                       <option value="business-website">Business Website</option>
@@ -301,7 +338,7 @@ const Contact: React.FC = () => {
                       <option value="other">Other Inquiry</option>
                     </select>
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1">
                     <label className="text-black/40 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
                       Budget Range
                     </label>
@@ -316,17 +353,6 @@ const Contact: React.FC = () => {
                       <option value="undecided">Undecided</option>
                     </select>
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-black/40 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
-                      Timeline
-                    </label>
-                    <input
-                      name="timeline"
-                      type="text"
-                      className="w-full bg-transparent border-b border-black/10 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-black dark:text-brand-white placeholder:text-black/30 dark:placeholder:text-brand-white/20"
-                      placeholder="e.g. 2 weeks, ASAP"
-                    />
-                  </div>
                   <div className="hidden">
                     <input
                       type="text"
@@ -336,7 +362,7 @@ const Contact: React.FC = () => {
                       autoComplete="off"
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1">
                     <label className="text-black/40 dark:text-brand-white/40 font-mono text-[10px] uppercase tracking-widest block">
                       Message
                     </label>
@@ -344,23 +370,89 @@ const Contact: React.FC = () => {
                       required
                       name="message"
                       rows={4}
+                      aria-required="true"
+                      aria-invalid={!!errors.message}
+                      aria-describedby={
+                        errors.message ? "message-error" : undefined
+                      }
                       className="w-full bg-transparent border-b border-black/10 dark:border-brand-white/20 py-3 outline-none focus:border-brand-violet transition-colors text-black dark:text-brand-white placeholder:text-black/30 dark:placeholder:text-brand-white/20 resize-none"
                       placeholder="Tell us about your vision..."
                     />
+                    {errors.message && (
+                      <p
+                        id="message-error"
+                        className="text-red-500 text-[10px] mt-1"
+                        aria-live="polite"
+                      >
+                        {errors.message}
+                      </p>
+                    )}
                   </div>
-                  <button
-                    disabled={formState === "submitting"}
-                    className="w-full py-5 bg-brand-violet text-brand-white font-bold uppercase tracking-tighter hover:scale-[1.02] transition-transform disabled:opacity-50 disabled:hover:scale-100 rounded-full shadow-lg shadow-brand-violet/20"
-                  >
-                    {formState === "submitting" ? "Sending..." : "Send Message"}
-                  </button>
+                  <div className="flex flex-col gap-4">
+                    <label className="flex items-start gap-3 cursor-pointer group">
+                      <div className="relative flex items-center justify-center w-5 h-5 mt-0.5">
+                        <input
+                          type="checkbox"
+                          name="consent"
+                          checked={consent}
+                          onChange={(e) => setConsent(e.target.checked)}
+                          className="peer appearance-none w-5 h-5 border border-black/20 dark:border-brand-white/20 rounded bg-transparent checked:bg-brand-violet checked:border-brand-violet transition-all cursor-pointer"
+                        />
+                        <svg
+                          className="absolute w-3.5 h-3.5 text-brand-white opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </div>
+                      <span className="text-xs leading-tight text-black/70 dark:text-brand-white/70 group-hover:text-black dark:group-hover:text-brand-white transition-colors">
+                        I agree to CHAMP using my details to reply to my
+                        enquiry, as described in the{" "}
+                        <Link
+                          to="/privacy"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-brand-violet hover:underline"
+                        >
+                          Privacy Policy
+                        </Link>
+                        .
+                      </span>
+                    </label>
+                    {errors.consent && (
+                      <p
+                        className="text-red-500 text-[10px]"
+                        aria-live="polite"
+                      >
+                        {errors.consent}
+                      </p>
+                    )}
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <button
+                      disabled={formState === "submitting" || !consent}
+                      className="w-full py-5 bg-brand-violet text-brand-white font-bold uppercase tracking-tighter hover:scale-[1.02] transition-transform disabled:opacity-50 disabled:hover:scale-100 rounded-full shadow-lg shadow-brand-violet/20"
+                    >
+                      {formState === "submitting"
+                        ? "Sending..."
+                        : "Send Message"}
+                    </button>
+                    <p className="text-center text-[10px] uppercase tracking-widest text-black/40 dark:text-brand-white/30">
+                      We only use your details to reply to you.
+                    </p>
+                  </div>
                 </form>
               )}
             </motion.div>
           </div>
         </div>
       </section>
-
       {/* --- FINAL SECTION --- */}
       <section className="relative py-24 md:py-40 px-6 text-center bg-black dark:bg-brand-black transition-colors duration-500">
         <div className="max-w-4xl mx-auto relative z-10">

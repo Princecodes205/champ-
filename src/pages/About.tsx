@@ -38,38 +38,38 @@ const About: React.FC = () => {
   return (
     <div className="flex flex-col bg-white text-black dark:bg-brand-black dark:text-brand-white min-h-screen overflow-x-hidden transition-colors duration-500 selection:bg-brand-violet selection:text-brand-black">
       <Helmet>
-        <title>About — Where Design Meets Execution</title>
+        <title>About Champ | Strategic Branding & Design Studio</title>
         <meta
           name="description"
-          content="champ is a design-led studio building brands and products for growth-focused businesses. See how strategy, design, and development work as one."
+          content="Learn how Champ combines high-end brand identity with technical precision to help businesses win more clients through strategic design and development."
         />
-        <link rel="canonical" href="https://champ-jet.vercel.app/about" />
+        <link rel="canonical" href="https://hellochamp.vercel.app/about" />
         <meta
           property="og:title"
-          content="About — Where Design Meets Execution"
+          content="About Champ | Strategic Branding & Design Studio"
         />
         <meta
           property="og:description"
-          content="champ is a design-led studio building brands and products for growth-focused businesses. See how strategy, design, and development work as one."
+          content="Learn how Champ combines high-end brand identity with technical precision to help businesses win more clients through strategic design and development."
         />
-        <meta property="og:url" content="https://champ-jet.vercel.app/about" />
+        <meta property="og:url" content="https://hellochamp.vercel.app/about" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://champ-jet.vercel.app/og-image.png"
+          content="https://hellochamp.vercel.app/og-image.png"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="About — Where Design Meets Execution"
+          content="About Champ | Strategic Branding & Design Studio"
         />
         <meta
           name="twitter:description"
-          content="champ is a design-led studio building brands and products for growth-focused businesses. See how strategy, design, and development work as one."
+          content="Learn how Champ combines high-end brand identity with technical precision to help businesses win more clients through strategic design and development."
         />
         <meta
           name="twitter:image"
-          content="https://champ-jet.vercel.app/og-image.png"
+          content="https://hellochamp.vercel.app/og-image.png"
         />
       </Helmet>
       {/* --- HERO SECTION --- */}
@@ -87,7 +87,7 @@ const About: React.FC = () => {
               We Build <span className="text-brand-violet italic">Brands</span>{" "}
               <br /> That Win Clients.
             </h1>
-            <p className="text-lg md:text-2xl text-black/60 dark:text-brand-white/60 max-w-3xl leading-relaxed font-light">
+            <p className="text-lg md:text-2xl text-black/70 dark:text-brand-white/70 max-w-3xl leading-relaxed font-light">
               champ is a global brand and web studio for businesses serious
               about growth. Most businesses show up inconsistent: a logo here, a
               dated website there, nothing that earns trust or gets remembered.
@@ -97,6 +97,8 @@ const About: React.FC = () => {
               <span className="text-brand-violet italic">SEO integrated</span>{" "}
               to make your brand stand out from competitors, into one sharp,
               clear presence that makes the right clients choose you.
+              <br /><br />
+              Our approach blends the creativity of a high-end design boutique with the technical discipline of a product engineering team. Whether you are a startup looking for your first identity or an established business needing a digital transformation, we ensure your online presence is a high-converting asset.
             </p>
           </motion.div>
         </div>
@@ -263,7 +265,7 @@ const About: React.FC = () => {
                 <h3 className="text-3xl md:text-5xl font-black tracking-tighter mb-6 text-black dark:text-brand-white">
                   Champ Studio
                 </h3>
-                <p className="text-black/60 dark:text-brand-white/60 text-lg leading-relaxed mb-8 max-sm:text-left">
+                <p className="text-black/70 dark:text-brand-white/70 text-lg leading-relaxed mb-8 max-sm:text-left">
                   The creative heart of the agency. Specializing in brand
                   strategy, visual identity, social media, and high-fidelity
                   UX/UI design. We build the emotional connection between a
@@ -304,7 +306,7 @@ const About: React.FC = () => {
                 <h3 className="text-3xl md:text-5xl font-black tracking-tighter mb-6 text-black dark:text-brand-white">
                   Champ Build
                 </h3>
-                <p className="text-black/60 dark:text-brand-white/60 text-lg leading-relaxed mb-8 max-sm:text-left">
+                <p className="text-black/70 dark:text-brand-white/70 text-lg leading-relaxed mb-8 max-sm:text-left">
                   The technical side. Custom web applications with SEO
                   integration, clean infrastructure, mobile apps, and fast,
                   reliable builds. We turn ideas into software that actually

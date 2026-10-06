@@ -63,6 +63,12 @@ const Layout: React.FC = () => {
 
   return (
     <div className="min-h-screen font-inter flex flex-col transition-colors duration-500 bg-white text-black dark:bg-brand-black dark:text-brand-white">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[1000] focus:bg-brand-violet focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:font-bold"
+      >
+        Skip to main content
+      </a>
       <nav
         className={`fixed top-0 left-0 right-0 z-[300] transition-all duration-500 px-6 md:px-12 py-4 ${
           scrolled
@@ -206,7 +212,7 @@ const Layout: React.FC = () => {
         )}
       </AnimatePresence>
 
-      <main className="flex-grow pt-24">
+      <main id="main-content" className="flex-grow pt-24">
         <Outlet />
       </main>
 
@@ -247,6 +253,18 @@ const Layout: React.FC = () => {
                 className="text-sm transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
               >
                 Contact
+              </Link>
+              <Link
+                to="/privacy"
+                className="text-sm transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                to="/terms"
+                className="text-sm transition-colors hover:text-brand-violet text-black/60 dark:text-white/60"
+              >
+                Terms of Use
               </Link>
             </div>
           </div>

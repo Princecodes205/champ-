@@ -4,7 +4,13 @@
   --color-brand-violet: #5500FF;
   --color-brand-black: #0A0A0A;
   --color-brand-white: #FFFFFF;
-  --font-inter: "Inter", sans-serif;
+  --color-surface: #F9F9F9;
+  --color-surface-dark: #121212;
+  --color-text-muted: #666666;
+  --color-text-muted-dark: #A1A1A1;
+  --color-border-subtle: rgba(0,0,0,0.1);
+  --color-border-subtle-dark: rgba(255,255,255,0.1);
+  --font-inter: "Inter Variable", "Inter", sans-serif;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -12,10 +18,25 @@
 @layer base {
   body {
     @apply bg-white text-black font-inter antialiased dark:bg-brand-black dark:text-brand-white;
+    font-display: swap;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight text-black dark:text-brand-white;
+  }
+
+  /* High-visibility focus ring for keyboard navigation */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-violet ring-offset-2 dark:ring-offset-brand-black;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
@@ -25,6 +46,9 @@
   }
   .hairline-border {
     @apply border-[1px] border-black/10 dark:border-brand-white/10;
+  }
+  .text-muted {
+    @apply text-brand-white/70 dark:text-brand-white/50;
   }
 }
 
